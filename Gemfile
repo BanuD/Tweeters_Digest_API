@@ -31,6 +31,8 @@ gem 'omniauth-twitter'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'dotenv-rails'
 
+gem 'twitter'
+
 # TESTS_______________________________
 group :development, :test do
   gem 'debugger'
@@ -42,6 +44,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Use ActiveModel has_secure_password
