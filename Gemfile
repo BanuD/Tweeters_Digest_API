@@ -26,8 +26,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'devise_token_auth'
 gem 'omniauth-twitter'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'dotenv-rails'
 
+# TESTS_______________________________
 group :development, :test do
   gem 'debugger'
   gem 'rspec-rails'
@@ -38,7 +42,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
-  gem 'dotenv-rails'
+
 end
 
 # Use ActiveModel has_secure_password

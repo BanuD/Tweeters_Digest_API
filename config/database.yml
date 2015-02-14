@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: tweeters_digest_development
+  database: Tweeters_Digest_API_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: tweeters_digest
+  #username: Tweeters_Digest_API
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: tweeters_digest_test
+  database: Tweeters_Digest_API_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: tweeters_digest_production
-  username: tweeters_digest
-  password: <%= ENV['TWEETERS_DIGEST_DATABASE_PASSWORD'] %>
+  database: Tweeters_Digest_API_production
+  username: Tweeters_Digest_API
+  password: <%= ENV['TWEETERS_DIGEST_API_DATABASE_PASSWORD'] %>
