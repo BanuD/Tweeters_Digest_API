@@ -42,7 +42,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
-
 end
 
 # Use ActiveModel has_secure_password
