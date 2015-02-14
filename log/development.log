@@ -10,3 +10,200 @@ Migrating to DeviseTokenAuthCreateUsers (20150214054906)
   [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214054906"]]
   [1m[35m (0.6ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-13 22:40:52 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
+Completed 200 OK in 69ms (Views: 57.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-13 22:41:21 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-13 22:49:08 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F" for 127.0.0.1 at 2015-02-13 23:20:07 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User" for 127.0.0.1 at 2015-02-13 23:20:07 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User&oauth_token=Fs6xKPj6hzXIIfb2mk88m0ncPW9uHv1n&oauth_verifier=ErBFiGbPYGj0v3H0zuArU6qjSkBhM0v3" for 127.0.0.1 at 2015-02-13 23:20:08 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8888/", "resource_class"=>"User", "oauth_token"=>"Fs6xKPj6hzXIIfb2mk88m0ncPW9uHv1n", "oauth_verifier"=>"ErBFiGbPYGj0v3H0zuArU6qjSkBhM0v3", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-13 23:20:08 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2275925132' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (30.7ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "name", "nickname", "provider", "sign_in_count", "tokens", "uid", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["confirmed_at", "2015-02-14 07:20:08.938320"], ["created_at", "2015-02-14 07:20:08.941797"], ["current_sign_in_at", "2015-02-14 07:20:08.938815"], ["current_sign_in_ip", "127.0.0.1"], ["encrypted_password", "$2a$10$PB2y2u2ApWgvRbSTVa/V3.ZEb4HZs.c0nlLHxQGhctfu3EV7G/leu"], ["image", "http://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png"], ["last_sign_in_at", "2015-02-14 07:20:08.938815"], ["last_sign_in_ip", "127.0.0.1"], ["name", "Daniel Kelley"], ["nickname", "danielkelley123"], ["provider", "twitter"], ["sign_in_count", 1], ["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008}}"], ["uid", "2275925132"], ["updated_at", "2015-02-14 07:20:08.941797"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008}}"], ["updated_at", "2015-02-14 07:20:08.981489"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (1.4ms)
+Completed 200 OK in 332ms (Views: 5.8ms | ActiveRecord: 36.0ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F" for 127.0.0.1 at 2015-02-14 09:34:00 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User" for 127.0.0.1 at 2015-02-14 09:34:00 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User&oauth_token=UoxIJgnTatvm6mWfCCQCHlrJih7bC1ck&oauth_verifier=1NNKm6q6C320sDMCLdYCCQvamuFRMohV" for 127.0.0.1 at 2015-02-14 09:34:09 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8888/", "resource_class"=>"User", "oauth_token"=>"UoxIJgnTatvm6mWfCCQCHlrJih7bC1ck", "oauth_verifier"=>"1NNKm6q6C320sDMCLdYCCQvamuFRMohV", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-14 09:34:09 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2275925132' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "tokens" = $4, "updated_at" = $5 WHERE "users"."id" = 1  [["confirmed_at", "2015-02-14 17:34:10.058965"], ["current_sign_in_at", "2015-02-14 17:34:10.059491"], ["sign_in_count", 2], ["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008},\"DcrNb9rkAEYZgouOlL2LYQ\":{\"token\":\"$2a$10$7Azn4tRsM2DpqI75yLbqMuv.V7uoN7VCJCwXWD6MQI42YFUVrxeu6\",\"expiry\":1425144849}}"], ["updated_at", "2015-02-14 17:34:10.061440"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008},\"DcrNb9rkAEYZgouOlL2LYQ\":{\"token\":\"$2a$10$7Azn4tRsM2DpqI75yLbqMuv.V7uoN7VCJCwXWD6MQI42YFUVrxeu6\",\"expiry\":1425144849}}"], ["updated_at", "2015-02-14 17:34:10.071096"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (1.7ms)
+Completed 200 OK in 181ms (Views: 9.0ms | ActiveRecord: 5.7ms)
+
+
+Started OPTIONS "/auth/sign_out" for 127.0.0.1 at 2015-02-14 09:34:36 -0800
+
+
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2015-02-14 09:34:36 -0800
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:251:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.8ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F" for 127.0.0.1 at 2015-02-14 09:34:40 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User" for 127.0.0.1 at 2015-02-14 09:34:40 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User&oauth_token=M58nSpBT5dElsZJrvnjKMPSY5iFLagpv&oauth_verifier=WtYgmc99luKc5kbcCiIjkc04VjlqsldO" for 127.0.0.1 at 2015-02-14 09:34:40 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8888/", "resource_class"=>"User", "oauth_token"=>"M58nSpBT5dElsZJrvnjKMPSY5iFLagpv", "oauth_verifier"=>"WtYgmc99luKc5kbcCiIjkc04VjlqsldO", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-14 09:34:41 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2275925132' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["confirmed_at", "2015-02-14 17:34:41.325920"], ["current_sign_in_at", "2015-02-14 17:34:41.326598"], ["last_sign_in_at", "2015-02-14 17:34:10.059491"], ["sign_in_count", 3], ["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008},\"DcrNb9rkAEYZgouOlL2LYQ\":{\"token\":\"$2a$10$7Azn4tRsM2DpqI75yLbqMuv.V7uoN7VCJCwXWD6MQI42YFUVrxeu6\",\"expiry\":1425144849},\"eK22Gdo09igrq1HvRAD5cw\":{\"token\":\"$2a$10$1jbfYlLT75CFseCFB/kTo.XtjlZ0FI9rNjvziWh7Je656plMitHX.\",\"expiry\":1425144881}}"], ["updated_at", "2015-02-14 17:34:41.327558"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"bPsKv-wBa2GBuakDGLReYg\":{\"token\":\"$2a$10$0XjB6Zu2JtiogD7u3981zO9WWpt2yQ2YWp./rq4LALqUgWdKGH9We\",\"expiry\":1425108008},\"DcrNb9rkAEYZgouOlL2LYQ\":{\"token\":\"$2a$10$7Azn4tRsM2DpqI75yLbqMuv.V7uoN7VCJCwXWD6MQI42YFUVrxeu6\",\"expiry\":1425144849},\"eK22Gdo09igrq1HvRAD5cw\":{\"token\":\"$2a$10$1jbfYlLT75CFseCFB/kTo.XtjlZ0FI9rNjvziWh7Je656plMitHX.\",\"expiry\":1425144881}}"], ["updated_at", "2015-02-14 17:34:41.331028"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (0.4ms)
+Completed 200 OK in 89ms (Views: 3.0ms | ActiveRecord: 2.1ms)
