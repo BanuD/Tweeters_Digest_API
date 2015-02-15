@@ -7,7 +7,6 @@ class TwitterData
     config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
   end
 
-
   # TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
   def self.basic_search(args = {})
     tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
