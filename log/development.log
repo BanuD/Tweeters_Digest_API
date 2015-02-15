@@ -7706,3 +7706,189 @@ ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthentici
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/" for 127.0.0.1 at 2015-02-15 09:18:23 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (3.8ms)
+Completed 200 OK in 95ms (Views: 82.7ms | ActiveRecord: 0.0ms)
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8888
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-15 09:18:25 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 2]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2[0m  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"}}"], ["updated_at", "2015-02-15 17:18:25.506179"]]
+  [1m[35m (36.3ms)[0m  COMMIT
+Completed 200 OK in 231ms (Views: 0.3ms | ActiveRecord: 40.4ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F" for 127.0.0.1 at 2015-02-15 09:18:31 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User" for 127.0.0.1 at 2015-02-15 09:18:31 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User&oauth_token=rL3SjA6TyKIiRuCbFWIiMW0TA1iXvYHM&oauth_verifier=WAIU969sBD4ZGzD3x8kYhCsDnXoYBc8U" for 127.0.0.1 at 2015-02-15 09:18:32 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8888/", "resource_class"=>"User", "oauth_token"=>"rL3SjA6TyKIiRuCbFWIiMW0TA1iXvYHM", "oauth_verifier"=>"WAIU969sBD4ZGzD3x8kYhCsDnXoYBc8U", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-15 09:18:32 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 2[0m  [["confirmed_at", "2015-02-15 17:18:32.372722"], ["current_sign_in_at", "2015-02-15 17:18:32.373131"], ["last_sign_in_at", "2015-02-15 05:23:27.208514"], ["sign_in_count", 3], ["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"expiry\":1425230312}}"], ["updated_at", "2015-02-15 17:18:32.374546"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"expiry\":1425230312}}"], ["updated_at", "2015-02-15 17:18:32.378020"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.1ms)
+Completed 200 OK in 93ms (Views: 6.9ms | ActiveRecord: 2.4ms)
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8888
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-15 09:18:36 -0800
+Processing by ApplicationController#getTweets as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8888
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-15 09:28:56 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 2]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2[0m  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$kwAKrsgFBofXbBKntVbPde73yCGgXOu1Na/1Cwxz4NJO4zB/CmU/m\",\"expiry\":1425230937,\"last_token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"updated_at\":\"2015-02-15T09:28:57.070-08:00\"}}"], ["updated_at", "2015-02-15 17:28:57.071932"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 252ms (Views: 0.3ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F" for 127.0.0.1 at 2015-02-15 09:28:59 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User" for 127.0.0.1 at 2015-02-15 09:28:59 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8888%2F&resource_class=User&oauth_token=KVgPE7V0KkYFDVTnNjer9aLl2zOJRlLT&oauth_verifier=JiPPRb8d9QUiIyDgUDLuzr5AvPFV40cE" for 127.0.0.1 at 2015-02-15 09:28:59 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8888/", "resource_class"=>"User", "oauth_token"=>"KVgPE7V0KkYFDVTnNjer9aLl2zOJRlLT", "oauth_verifier"=>"JiPPRb8d9QUiIyDgUDLuzr5AvPFV40cE", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-15 09:29:00 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 2[0m  [["confirmed_at", "2015-02-15 17:29:00.314903"], ["current_sign_in_at", "2015-02-15 17:29:00.315319"], ["last_sign_in_at", "2015-02-15 17:18:32.373131"], ["sign_in_count", 4], ["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$kwAKrsgFBofXbBKntVbPde73yCGgXOu1Na/1Cwxz4NJO4zB/CmU/m\",\"expiry\":1425230937,\"last_token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"updated_at\":\"2015-02-15T09:28:57.070-08:00\"},\"Ay9FzkO3TGcT_7--OWl4Iw\":{\"token\":\"$2a$10$SAmDYAgZL1vZQJZEof6PqePAz2frIitS85eQiPcr5VpPTb5OQ847e\",\"expiry\":1425230940}}"], ["updated_at", "2015-02-15 17:29:00.316826"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$kwAKrsgFBofXbBKntVbPde73yCGgXOu1Na/1Cwxz4NJO4zB/CmU/m\",\"expiry\":1425230937,\"last_token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"updated_at\":\"2015-02-15T09:28:57.070-08:00\"},\"Ay9FzkO3TGcT_7--OWl4Iw\":{\"token\":\"$2a$10$SAmDYAgZL1vZQJZEof6PqePAz2frIitS85eQiPcr5VpPTb5OQ847e\",\"expiry\":1425230940}}"], ["updated_at", "2015-02-15 17:29:00.322103"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.7ms)
+Completed 200 OK in 164ms (Views: 72.4ms | ActiveRecord: 3.1ms)
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8888
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-15 09:29:11 -0800
+Processing by ApplicationController#getTweets as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 2]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2[0m  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$kwAKrsgFBofXbBKntVbPde73yCGgXOu1Na/1Cwxz4NJO4zB/CmU/m\",\"expiry\":1425230937,\"last_token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"updated_at\":\"2015-02-15T09:28:57.070-08:00\"},\"Ay9FzkO3TGcT_7--OWl4Iw\":{\"token\":\"$2a$10$S.edXiW45JLH/RwGJLNu8uAEe/zeWB1Wgq.8k0ZSXgQqxC.j8oIlW\",\"expiry\":1425230951,\"last_token\":\"$2a$10$SAmDYAgZL1vZQJZEof6PqePAz2frIitS85eQiPcr5VpPTb5OQ847e\",\"updated_at\":\"2015-02-15T09:29:11.425-08:00\"}}"], ["updated_at", "2015-02-15 17:29:11.426035"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 290ms (Views: 1.0ms | ActiveRecord: 2.3ms)
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-15 09:31:04 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE[0m  [["id", 2]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 2  [["tokens", "{\"jWGW72Jpdu2kyTk1-PGmQg\":{\"token\":\"$2a$10$A9rmQPv4C0JKOjGJTYj/ruL4MdZOiv95lZThp8l1FRTLDyoFivOjC\",\"expiry\":1425185623},\"rq0hyhf4kG5dLe3KNHQyKQ\":{\"token\":\"$2a$10$ZG5hZMcwydLQ/1arZpCTyehOvwOtmP4si70x4SQB.v2TMXe1v5cVu\",\"expiry\":1425230305,\"last_token\":\"$2a$10$N1eB3j/ANMn/wJH54hSyNu7nNXX4AkjEIL1MECovUPt8TdcYgmvne\",\"updated_at\":\"2015-02-15T09:18:25.505-08:00\"},\"5OpJIjCnQQyEI_B_MO4tQg\":{\"token\":\"$2a$10$kwAKrsgFBofXbBKntVbPde73yCGgXOu1Na/1Cwxz4NJO4zB/CmU/m\",\"expiry\":1425230937,\"last_token\":\"$2a$10$mYAhOHT/jws/WAar0lAdweby1AF62qjmRM.XBMk.I0Uu1IBI6HZwK\",\"updated_at\":\"2015-02-15T09:28:57.070-08:00\"},\"Ay9FzkO3TGcT_7--OWl4Iw\":{\"token\":\"$2a$10$t6XQqGYJqdVW2U95pHj54uRe6E4r5bT8dnSru8y0wSWE5ZSNg3IY.\",\"expiry\":1425231064,\"last_token\":\"$2a$10$S.edXiW45JLH/RwGJLNu8uAEe/zeWB1Wgq.8k0ZSXgQqxC.j8oIlW\",\"updated_at\":\"2015-02-15T09:31:04.787-08:00\"}}"], ["updated_at", "2015-02-15 17:31:04.788055"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 187ms (Views: 0.3ms | ActiveRecord: 3.7ms)
+Incoming Headers:
+  Origin: http://localhost:8888
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-15 09:31:05 -0800
+Processing by ApplicationController#getTweets as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1

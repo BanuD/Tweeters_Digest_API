@@ -5,11 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def getTweets
+    # p "authenticate_user! is #{authenticate_user!}"
+    # p "user_signed_in? is #{user_signed_in?}"
+    # p "*"*100
     # debugger
-    p "authenticate_user! is #{authenticate_user!}"
-    p "user_signed_in? is #{user_signed_in?}"
-    p "*"*100
-    # p current_user
+    # p auth_headers["client"]
     tweets = TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
     render json: tweets
   end
