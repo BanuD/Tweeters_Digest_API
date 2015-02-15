@@ -207,6 +207,7 @@ Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as H
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (0.4ms)
 Completed 200 OK in 89ms (Views: 3.0ms | ActiveRecord: 2.1ms)
+<<<<<<< HEAD
 
 
 Started GET "/" for 127.0.0.1 at 2015-02-14 15:55:43 -0800
@@ -7892,3 +7893,176 @@ Incoming Headers:
 Started GET "/getTweets" for 127.0.0.1 at 2015-02-15 09:31:05 -0800
 Processing by ApplicationController#getTweets as HTML
   [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+=======
+  [1m[36m (33.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseTokenAuthCreateUsers (20150214054906)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (19.9ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255) NOT NULL, "uid" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "confirmation_token" character varying(255), "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying(255), "name" character varying(255), "nickname" character varying(255), "image" character varying(255), "email" character varying(255), "tokens" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")
+  [1m[36mSQL (15.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214054906"]]
+  [1m[35m (16.1ms)[0m  COMMIT
+Migrating to CreateLeaders (20150214234946)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.7ms)[0m  CREATE TABLE "leaders" ("id" serial primary key, "name" character varying(255), "nickname" character varying(255), "image" character varying(255), "user_id" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214234946"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateTweets (20150214235015)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.8ms)[0m  CREATE TABLE "tweets" ("id" serial primary key, "content" text, "collector_id" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214235015"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateCollectors (20150214235153)
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "collectors" ("id" serial primary key, "query" text, "user_id" character varying(255), "leader_id" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214235153"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 02:01:28.134502"], ["leader_id", 1], ["query", "dogs, cats, ruby on rails"], ["updated_at", "2015-02-15 02:01:28.134502"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-02-15 02:01:28.155895"], ["leader_id", 2], ["query", "dogs, cats"], ["updated_at", "2015-02-15 02:01:28.155895"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 02:01:28.158225"], ["leader_id", 1], ["query", "ruby on rails"], ["updated_at", "2015-02-15 02:01:28.158225"], ["user_id", 2]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-02-15 02:01:28.160519"], ["leader_id", 3], ["query", "pizza"], ["updated_at", "2015-02-15 02:01:28.160519"], ["user_id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 02:01:28.162517"], ["leader_id", 2], ["query", "hamster"], ["updated_at", "2015-02-15 02:01:28.162517"], ["user_id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (15.3ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 02:01:28.175526"], ["image", "1"], ["name", "Rilke"], ["nickname", "teamlead"], ["updated_at", "2015-02-15 02:01:28.175526"], ["user_id", 1]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-15 02:01:28.194650"], ["image", "2"], ["name", "Daniel"], ["nickname", "serious"], ["updated_at", "2015-02-15 02:01:28.194650"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 02:01:28.197338"], ["image", "3"], ["name", "Aaron"], ["nickname", "will change your life"], ["updated_at", "2015-02-15 02:01:28.197338"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-15 02:01:28.199605"], ["image", "8"], ["name", "Banu"], ["nickname", "minority"], ["updated_at", "2015-02-15 02:01:28.199605"], ["user_id", 3]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 02:01:28.202470"], ["image", "5"], ["name", "Random Dude"], ["nickname", "creep"], ["updated_at", "2015-02-15 02:01:28.202470"], ["user_id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 1], ["content", "gdfr"], ["created_at", "2015-02-15 02:01:28.213510"], ["updated_at", "2015-02-15 02:01:28.213510"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 1], ["content", "grd"], ["created_at", "2015-02-15 02:01:28.217406"], ["updated_at", "2015-02-15 02:01:28.217406"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 2], ["content", "gr"], ["created_at", "2015-02-15 02:01:28.219818"], ["updated_at", "2015-02-15 02:01:28.219818"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 2], ["content", "fsfs"], ["created_at", "2015-02-15 02:01:28.221866"], ["updated_at", "2015-02-15 02:01:28.221866"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 3], ["content", "dg"], ["created_at", "2015-02-15 02:01:28.223711"], ["updated_at", "2015-02-15 02:01:28.223711"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 4], ["content", "serfe"], ["created_at", "2015-02-15 02:01:28.225844"], ["updated_at", "2015-02-15 02:01:28.225844"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 5], ["content", "wrew"], ["created_at", "2015-02-15 02:01:28.227838"], ["updated_at", "2015-02-15 02:01:28.227838"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 5], ["content", "erw"], ["created_at", "2015-02-15 02:01:28.229515"], ["updated_at", "2015-02-15 02:01:28.229515"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mLeader Load (0.6ms)[0m  [1mSELECT "leaders".* FROM "leaders"[0m
+  [1m[35mTweet Load (0.8ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mCollector Load (1.2ms)[0m  [1mSELECT "collectors".* FROM "collectors"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mTweet Load (1.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" = 1[0m
+PG::UndefinedColumn: ERROR:  column tweets.user_id does not exist
+LINE 1: SELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" = ...
+                                               ^
+: SELECT "tweets".* FROM "tweets"  WHERE "tweets"."user_id" = 1
+  [1m[35mCollector Load (1.4ms)[0m  SELECT "collectors".* FROM "collectors"  WHERE "collectors"."leader_id" = 1 AND "collectors"."user_id" = 2
+PG::UndefinedFunction: ERROR:  operator does not exist: character varying = integer
+LINE 1: ...FROM "collectors"  WHERE "collectors"."leader_id" = 1 AND "c...
+                                                             ^
+HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
+: SELECT "collectors".* FROM "collectors"  WHERE "collectors"."leader_id" = 1 AND "collectors"."user_id" = 2
+  [1m[36mCollector Load (0.7ms)[0m  [1mSELECT "collectors".* FROM "collectors"  WHERE "collectors"."leader_id" = '1' AND "collectors"."user_id" = '2'[0m
+  [1m[36mTweet Load (0.5ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+  [1m[35mCollector Load (0.6ms)[0m  SELECT "collectors".* FROM "collectors"
+  [1m[36mCollector Load (0.4ms)[0m  [1mSELECT  "collectors".* FROM "collectors"  WHERE "collectors"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mTweet Load (0.5ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."collector_id" = $1[0m  [["collector_id", 1]]
+  [1m[35mLeader Load (0.7ms)[0m  SELECT  "leaders".* FROM "leaders"   ORDER BY "leaders"."id" ASC LIMIT 1
+  [1m[36mLeader Load (0.6ms)[0m  [1mSELECT  "leaders".* FROM "leaders"   ORDER BY "leaders"."id" ASC LIMIT 1[0m
+  [1m[35mLeader Load (0.6ms)[0m  SELECT  "leaders".* FROM "leaders"   ORDER BY "leaders"."id" ASC LIMIT 1
+  [1m[36mCollector Load (0.3ms)[0m  [1mSELECT  "collectors".* FROM "collectors"  WHERE "collectors"."leader_id" = $1 LIMIT 1[0m  [["leader_id", 1]]
+  [1m[35mCollector Load (0.6ms)[0m  SELECT  "collectors".* FROM "collectors"   ORDER BY "collectors"."id" ASC LIMIT 1
+  [1m[36mTweet Load (0.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."collector_id" = $1[0m  [["collector_id", 1]]
+  [1m[35mCollector Load (0.5ms)[0m  SELECT "collectors".* FROM "collectors"
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 03:10:03.746218"], ["leader_id", 1], ["query", "dogs, cats, ruby on rails"], ["updated_at", "2015-02-15 03:10:03.746218"], ["user_id", 1]]
+  [1m[35m (1.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-02-15 03:10:03.753082"], ["leader_id", 2], ["query", "dogs, cats"], ["updated_at", "2015-02-15 03:10:03.753082"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 03:10:03.755125"], ["leader_id", 1], ["query", "ruby on rails"], ["updated_at", "2015-02-15 03:10:03.755125"], ["user_id", 2]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2015-02-15 03:10:03.757007"], ["leader_id", 3], ["query", "pizza"], ["updated_at", "2015-02-15 03:10:03.757007"], ["user_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "collectors" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-15 03:10:03.758846"], ["leader_id", 2], ["query", "hamster"], ["updated_at", "2015-02-15 03:10:03.758846"], ["user_id", 3]]
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 03:10:03.773414"], ["image", "1"], ["name", "Rilke"], ["nickname", "teamlead"], ["updated_at", "2015-02-15 03:10:03.773414"], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-15 03:10:03.776096"], ["image", "2"], ["name", "Daniel"], ["nickname", "serious"], ["updated_at", "2015-02-15 03:10:03.776096"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 03:10:03.777983"], ["image", "3"], ["name", "Aaron"], ["nickname", "will change your life"], ["updated_at", "2015-02-15 03:10:03.777983"], ["user_id", 2]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-15 03:10:03.779784"], ["image", "8"], ["name", "Banu"], ["nickname", "minority"], ["updated_at", "2015-02-15 03:10:03.779784"], ["user_id", 3]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "image", "name", "nickname", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-15 03:10:03.781725"], ["image", "5"], ["name", "Random Dude"], ["nickname", "creep"], ["updated_at", "2015-02-15 03:10:03.781725"], ["user_id", 3]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 1], ["content", "gdfr"], ["created_at", "2015-02-15 03:10:03.791376"], ["updated_at", "2015-02-15 03:10:03.791376"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 1], ["content", "grd"], ["created_at", "2015-02-15 03:10:03.794520"], ["updated_at", "2015-02-15 03:10:03.794520"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 2], ["content", "gr"], ["created_at", "2015-02-15 03:10:03.796973"], ["updated_at", "2015-02-15 03:10:03.796973"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 2], ["content", "fsfs"], ["created_at", "2015-02-15 03:10:03.798840"], ["updated_at", "2015-02-15 03:10:03.798840"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 3], ["content", "dg"], ["created_at", "2015-02-15 03:10:03.800721"], ["updated_at", "2015-02-15 03:10:03.800721"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 4], ["content", "serfe"], ["created_at", "2015-02-15 03:10:03.802409"], ["updated_at", "2015-02-15 03:10:03.802409"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["collector_id", 5], ["content", "wrew"], ["created_at", "2015-02-15 03:10:03.804251"], ["updated_at", "2015-02-15 03:10:03.804251"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("collector_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["collector_id", 5], ["content", "erw"], ["created_at", "2015-02-15 03:10:03.806056"], ["updated_at", "2015-02-15 03:10:03.806056"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+>>>>>>> Confirm working associations except user class
