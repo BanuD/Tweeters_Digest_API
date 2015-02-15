@@ -3,4 +3,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def getTweets
+    # p "authenticate_user! is #{authenticate_user!}"
+    # p "user_signed_in? is #{user_signed_in?}"
+    # p "*"*100
+    # debugger
+    # p auth_headers["client"]
+    tweets = TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
+    render json: tweets
+  end
 end

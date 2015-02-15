@@ -5,15 +5,16 @@ class TwitterData
     config.consumer_secret = ENV['CONSUMER_SECRET']
     config.access_token = ENV['ACCESS_TOKEN']
     config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+    # config.access_token = current_user.tokens
+    # config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
   end
-
 
   # TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
   def self.basic_search(args = {})
     tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end
-   return tweets.to_json
+   return tweets
   end
 end
 
