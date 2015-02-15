@@ -15,13 +15,24 @@ Bundler.require(*Rails.groups)
 
 module TweetersDigestApi
   class Application < Rails::Application
-    config.middleware.use Rack::Cors do
+    # config.middleware.use Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*',
+    #       :headers => :any,
+    #       :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+    #       :methods => [:get, :post, :options, :delete, :put]
+    #   end
+    # end
+
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
       allow do
         origins '*'
         resource '*',
           :headers => :any,
-          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client'],
-          :methods => [:get, :post, :options, :delete, :put]
+          :methods => [:get, :post, :delete, :put, :options, :head],
+          :credentials => true,
+          :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
       end
     end
 
