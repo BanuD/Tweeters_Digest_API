@@ -15,16 +15,17 @@ class TweetsController < ApplicationController
       Tweet.create(collector_id: collector.id, content: tweet)
     end
     #send tweets to front end in the form of json if we get to add the feature of sending leader specific tweets
-    render :json tweets
+    render json: tweets
   end
 
   # send client all tweets belonging to a user (client to api)
   def all_tweets
+    user  = User.find_by(id: params[:user_id])
     tweets = []
-    current_user.collectors.each do |collector|
+    user.collectors.each do |collector|
       tweets << collector.tweets
     end
-    render :json tweets
+    render json: tweets
   end
 
 end
