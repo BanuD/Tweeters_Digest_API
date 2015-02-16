@@ -44,4 +44,7 @@ class CollectorsController < ApplicationController
     collectors = user.collectors
     render json: collectors
   end
+
+
+
 end
