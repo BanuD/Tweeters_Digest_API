@@ -10,23 +10,29 @@ class TwitterData
   end
 
   # TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
+
+
+  # returns an array of tweet objects
   def self.basic_search(args = {})
-    # returns an array of tweet objects
     tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end
-    return tweets
+    tweets
   end
 
+  # returns an array of leader objects--people that the user follows
   def self.leader_search
-    # returns an array of leader objects--people that the user follows
-    leaders = @client.friends("apotonick").map do |leader|
-      leader
+    array = @client.friend_ids.to_a
+    leaders = []
+    array.each_slice(100) do |ids|
+      leaders << @client.users(ids)
     end
-    return leaders
+    leaders[0]
   end
+
 end
 
+# http://www.rubydoc.info/gems/twitter/Twitter/REST/FriendsAndFollowers#friends-instance_method
 # friends(user, options = {}) => Twitter::Cursor
 
 #TWEET METHODS:

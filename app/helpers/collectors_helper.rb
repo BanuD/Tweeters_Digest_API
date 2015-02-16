@@ -8,7 +8,7 @@ module CollectorsHelper
       collector.destroy
     else
       collector.save
-      render  :json collector
+      render :json collector
     end
   end
 
