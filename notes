@@ -1,0 +1,24 @@
+get collector and leader from client for that user
+querry the twitter api with that search
+store the first 25 tweets in the database
+
+
+
+Background job:
+make this happen every six seconds to the top collector on the queue. then append that collector to the bottom of the queue.
+
+
+
+
+////
+All routes from the rails API to the TWITTER API are get routes.
+
+
+Post routes:
+create collector
+put collector
+delete collector
+
+
+get collector
+
