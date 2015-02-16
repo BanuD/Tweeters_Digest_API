@@ -25,6 +25,4 @@ class CollectorsController < ApplicationController
     collectors = current_user.collectors
     render :json collectors
   end
-
-
 end
