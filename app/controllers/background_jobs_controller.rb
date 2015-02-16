@@ -1,0 +1,2 @@
+class BackgroundJobsController < ApplicationController
+end

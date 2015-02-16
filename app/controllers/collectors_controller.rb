@@ -2,7 +2,9 @@ class CollectorsController < ApplicationController
 
   def create
     leader = Leader.find_by(id: params[:leader_id]) #!!!!!!!url does not include leader_id-should come from the form.
-    collector = Collector.find_by(leader_id: leader.id, user_id: current_user.id)
+    user = User.find_by(id: params[:user_id])
+
+    collector = Collector.find_by(leader_id: leader.id, user_id: user.id)
     if collector
       collector.query = params[:query]
       if collector.query == ""
@@ -11,9 +13,9 @@ class CollectorsController < ApplicationController
         collector.save
       end
     else
-      collector = Collector.create(leader_id: leader.id, user_id: current_user.id, query: params[:query])
+      collector = Collector.create(leader_id: leader.id, user_id: user.id, query: params[:query])
     end
-    render :json collector
+    render json: collector
   end
 
 
@@ -25,7 +27,7 @@ class CollectorsController < ApplicationController
       collector.destroy
     else
       collector.save
-      render :json collector
+      render json: collector
     end
   end
 
@@ -38,7 +40,11 @@ class CollectorsController < ApplicationController
 
   # Fetch all collectors belonging to a user
   def index
-    collectors = current_user.collectors
-    render :json collectors
+    user = User.find_by(id: params[:user_id])
+    collectors = user.collectors
+    render json: collectors
   end
+
+
+
 end
