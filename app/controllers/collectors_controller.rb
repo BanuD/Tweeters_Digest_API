@@ -4,7 +4,15 @@ class CollectorsController < ApplicationController
     leader = Leader.find_by(id: params[:leader_id]) #!!!!!!!url does not include leader_id-should come from the form.
     collector = Collector.find_by(leader_id: leader.id, user_id: current_user.id)
     if collector
-      update_collector
+      collector_id = params[:collector_id] || collector.id
+      collector = Collector.find_by(id: collector_id)
+      collector.query = params[:query]
+      if collector.query == ""
+        collector.destroy
+      else
+        collector.save
+        render :json collector
+      end
     else
       collector = Collector.create(leader_id: leader.id, user_id: current_user.id, query: params[:query])
     end
@@ -12,7 +20,15 @@ class CollectorsController < ApplicationController
   end
 
   def update
-    update_collector
+    collector_id = params[:collector_id]
+    collector = Collector.find_by(id: collector_id)
+    collector.query = params[:query]
+    if collector.query == ""
+      collector.destroy
+    else
+      collector.save
+      render :json collector
+    end
   end
 
   def destroy
