@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150214235153) do
   end
 
   create_table "users", force: true do |t|
+    t.string   "tw_token"
+    t.string   "tw_secret"
     t.string   "provider",                            null: false
     t.string   "uid",                    default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

@@ -1,6 +1,9 @@
 class DeviseTokenAuthCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
+      t.string :tw_token
+      t.string :tw_secret
+
       ## Required
       t.string :provider, :null => false
       t.string :uid, :null => false, :default => ""

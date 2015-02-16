@@ -3,6 +3,10 @@ class TwitterData
   @client = Twitter::REST::Client.new do |config|
     config.consumer_key = ENV['CONSUMER_KEY']
     config.consumer_secret = ENV['CONSUMER_SECRET']
+    # config.access_token = current_user.tw_token
+    # config.access_token_secret = current_user.tw_token
+
+    # FIGURE THIS OUT!!!
     config.access_token = ENV['ACCESS_TOKEN']
     config.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
     # config.access_token = current_user.tokens
