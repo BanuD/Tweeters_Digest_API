@@ -28,11 +28,12 @@
       }).first_or_initialize
 
       # save twitter token and secret in users table
-      @resource.tw_token = auth_hash['credentials']['token']
-      @resource.tw_secret = auth_hash['credentials']['secret']
+      p @resource.tw_token = auth_hash['credentials']['token']
+      p @resource.tw_secret = auth_hash['credentials']['secret']
 
       puts "*" * 50
-      p auth_hash['credentials']
+      # p auth_hash['credentials']
+      # p current_user
       puts "*" * 50
 
       # create token info
