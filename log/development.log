@@ -528,3 +528,570 @@ Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as H
 Completed 200 OK in 275ms (Views: 12.5ms | ActiveRecord: 6.7ms)
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
   [1m[35mTweet Load (0.7ms)[0m  SELECT "tweets".* FROM "tweets" INNER JOIN "collectors" ON "tweets"."collector_id" = "collectors"."id" WHERE "collectors"."user_id" = $1  [["user_id", 1]]
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-16 12:06:03 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"}}"], ["updated_at", "2015-02-16 20:06:04.250410"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 258ms (Views: 0.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F" for 127.0.0.1 at 2015-02-16 12:06:06 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User" for 127.0.0.1 at 2015-02-16 12:06:06 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User&oauth_token=wxiIgCNcbgN6L8ckcElpCSfkt6PkRhwn&oauth_verifier=BvTf6et1hGbPGotMi0rdKqnjq4MlSmIm" for 127.0.0.1 at 2015-02-16 12:06:06 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/", "resource_class"=>"User", "oauth_token"=>"wxiIgCNcbgN6L8ckcElpCSfkt6PkRhwn", "oauth_verifier"=>"BvTf6et1hGbPGotMi0rdKqnjq4MlSmIm", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-16 12:06:07 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["confirmed_at", "2015-02-16 20:06:07.340647"], ["current_sign_in_at", "2015-02-16 20:06:07.341201"], ["last_sign_in_at", "2015-02-16 19:36:43.809973"], ["sign_in_count", 3], ["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767}}"], ["updated_at", "2015-02-16 20:06:07.342947"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767}}"], ["updated_at", "2015-02-16 20:06:07.346637"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (61.7ms)
+Completed 200 OK in 192ms (Views: 82.9ms | ActiveRecord: 2.4ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: DELETE
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started DELETE "/auth/sign_out" for 127.0.0.1 at 2015-02-16 12:06:10 -0800
+Processing by DeviseTokenAuth::SessionsController#destroy as HTML
+Can't verify CSRF token authenticity
+Completed 422 Unprocessable Entity in 1ms
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:176:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:202:in `handle_unverified_request'
+  devise (3.4.1) lib/devise/controllers/helpers.rb:251:in `handle_unverified_request'
+  actionpack (4.1.6) lib/action_controller/metal/request_forgery_protection.rb:197:in `verify_authenticity_token'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/mapper.rb:45:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:186:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: if-modified-since, accept
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: if-modified-since, accept
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-16 12:06:11 -0800
+
+ActionController::RoutingError (No route matches [GET] "/getTweets"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (55.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-16 12:06:11 -0800
+
+ActionController::RoutingError (No route matches [GET] "/getTweets"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (39.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-16 12:06:11 -0800
+
+ActionController::RoutingError (No route matches [GET] "/getTweets"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (63.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (99.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-16 12:06:12 -0800
+
+ActionController::RoutingError (No route matches [GET] "/getTweets"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (43.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/getTweets" for 127.0.0.1 at 2015-02-16 12:06:12 -0800
+
+ActionController::RoutingError (No route matches [GET] "/getTweets"):
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.9ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.9ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F" for 127.0.0.1 at 2015-02-16 12:08:55 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User" for 127.0.0.1 at 2015-02-16 12:08:55 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User&oauth_token=1A5looDfGyabiKPHN4ESSk7ocs6InuGB&oauth_verifier=Sl7UAbcO2mQxG1fG0BtI54b3rg5gJwpe" for 127.0.0.1 at 2015-02-16 12:09:01 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting keyword_end:
+  app/helpers/collectors_helper.rb:11:in `'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:307:in `depend_on'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:225:in `require_dependency'
+  actionpack (4.1.6) lib/abstract_controller/helpers.rb:152:in `block in modules_for_helpers'
+  actionpack (4.1.6) lib/abstract_controller/helpers.rb:147:in `modules_for_helpers'
+  actionpack (4.1.6) lib/action_controller/metal/helpers.rb:93:in `modules_for_helpers'
+  actionpack (4.1.6) lib/abstract_controller/helpers.rb:111:in `helper'
+  actionpack (4.1.6) lib/action_controller/railties/helpers.rb:17:in `inherited'
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:238:in `block in constantize'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:236:in `constantize'
+  activesupport (4.1.6) lib/active_support/core_ext/string/inflections.rb:66:in `constantize'
+  devise (3.4.1) app/controllers/devise_controller.rb:2:in `<top (required)>'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:180:in `const_missing'
+  devise_token_auth (0.1.30) app/controllers/devise_token_auth/application_controller.rb:2:in `<module:DeviseTokenAuth>'
+  devise_token_auth (0.1.30) app/controllers/devise_token_auth/application_controller.rb:1:in `<top (required)>'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:180:in `const_missing'
+  devise_token_auth (0.1.30) app/controllers/devise_token_auth/omniauth_callbacks_controller.rb:2:in `<module:DeviseTokenAuth>'
+  devise_token_auth (0.1.30) app/controllers/devise_token_auth/omniauth_callbacks_controller.rb:1:in `<top (required)>'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:443:in `block in load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:633:in `new_constants_in'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:442:in `load_file'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:342:in `require_or_load'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:480:in `load_missing_constant'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:180:in `const_missing'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:240:in `block in constantize'
+  activesupport (4.1.6) lib/active_support/inflector/methods.rb:236:in `constantize'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:552:in `get'
+  activesupport (4.1.6) lib/active_support/dependencies.rb:583:in `constantize'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:78:in `controller_reference'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:68:in `controller'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:46:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:404:in `call_app!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:362:in `callback_phase'
+  omniauth-oauth (1.0.1) lib/omniauth/strategies/oauth.rb:58:in `callback_phase'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:227:in `callback_call'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:184:in `call!'
+  omniauth (1.2.2) lib/omniauth/strategy.rb:164:in `call'
+  omniauth (1.2.2) lib/omniauth/builder.rb:59:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  rack-cors (0.3.1) lib/rack/cors.rb:72:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+Incoming Headers:
+  Origin: http://localhost:3000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/__better_errors/bd48d6bea063cdc1/variables" for 127.0.0.1 at 2015-02-16 12:09:02 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User&oauth_token=1A5looDfGyabiKPHN4ESSk7ocs6InuGB&oauth_verifier=Sl7UAbcO2mQxG1fG0BtI54b3rg5gJwpe" for 127.0.0.1 at 2015-02-16 12:10:34 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/", "resource_class"=>"User", "oauth_token"=>"1A5looDfGyabiKPHN4ESSk7ocs6InuGB", "oauth_verifier"=>"Sl7UAbcO2mQxG1fG0BtI54b3rg5gJwpe", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-16 12:10:35 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["confirmed_at", "2015-02-16 20:10:35.133061"], ["current_sign_in_at", "2015-02-16 20:10:35.133570"], ["last_sign_in_at", "2015-02-16 20:06:07.341201"], ["sign_in_count", 4], ["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035}}"], ["updated_at", "2015-02-16 20:10:35.135212"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035}}"], ["updated_at", "2015-02-16 20:10:35.144639"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.0ms)
+Completed 200 OK in 124ms (Views: 9.9ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F" for 127.0.0.1 at 2015-02-16 12:10:37 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User" for 127.0.0.1 at 2015-02-16 12:10:37 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User&oauth_token=wOBtLr8PqKH00LhxdfS5exnsAmab2z63&oauth_verifier=VDbrGuFWsJFuLYjCfDsPofj9QVIMUjMC" for 127.0.0.1 at 2015-02-16 12:10:38 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/", "resource_class"=>"User", "oauth_token"=>"wOBtLr8PqKH00LhxdfS5exnsAmab2z63", "oauth_verifier"=>"VDbrGuFWsJFuLYjCfDsPofj9QVIMUjMC", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-16 12:10:38 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["confirmed_at", "2015-02-16 20:10:38.890876"], ["current_sign_in_at", "2015-02-16 20:10:38.891230"], ["last_sign_in_at", "2015-02-16 20:10:35.133570"], ["sign_in_count", 5], ["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035},\"f8o-l1E5v4BwmWEEQ2ijPQ\":{\"token\":\"$2a$10$gzaqirhVAHUd/Nbk2llP1uSl8apIHR6s8BaerTingWqRXfHqdU6Du\",\"expiry\":1425327038}}"], ["updated_at", "2015-02-16 20:10:38.892339"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035},\"f8o-l1E5v4BwmWEEQ2ijPQ\":{\"token\":\"$2a$10$gzaqirhVAHUd/Nbk2llP1uSl8apIHR6s8BaerTingWqRXfHqdU6Du\",\"expiry\":1425327038}}"], ["updated_at", "2015-02-16 20:10:38.896949"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (0.5ms)
+Completed 200 OK in 91ms (Views: 3.1ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F" for 127.0.0.1 at 2015-02-16 12:11:15 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User" for 127.0.0.1 at 2015-02-16 12:11:15 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F&resource_class=User&oauth_token=DeegOQ0YxXkJnAYCVoiQYgBWeEwL7dX6&oauth_verifier=msmsI0lp82mQD73M388loOvSSM1EjeAM" for 127.0.0.1 at 2015-02-16 12:11:21 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/", "resource_class"=>"User", "oauth_token"=>"DeegOQ0YxXkJnAYCVoiQYgBWeEwL7dX6", "oauth_verifier"=>"msmsI0lp82mQD73M388loOvSSM1EjeAM", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-16 12:11:21 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["confirmed_at", "2015-02-16 20:11:21.968452"], ["current_sign_in_at", "2015-02-16 20:11:21.969109"], ["last_sign_in_at", "2015-02-16 20:10:38.891230"], ["sign_in_count", 6], ["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035},\"f8o-l1E5v4BwmWEEQ2ijPQ\":{\"token\":\"$2a$10$gzaqirhVAHUd/Nbk2llP1uSl8apIHR6s8BaerTingWqRXfHqdU6Du\",\"expiry\":1425327038},\"_8-DnAsTEm3INufIudHD8Q\":{\"token\":\"$2a$10$fIl/ReK6r1emrmMeckfv3OuKSK4AqwM3HGAHqIwJanjx0lMooAXTi\",\"expiry\":1425327081}}"], ["updated_at", "2015-02-16 20:11:21.970811"]]
+  [1m[36m (152.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"tP6ZqBk0SfBQjd5joPLcJA\":{\"token\":\"$2a$10$D4z1.AJ8xB5dL1omH9ixJO3Kausj4BWy2pbD6LvlDXNfV.HaxS5X6\",\"expiry\":1425324989,\"last_token\":\"$2a$10$QK6.AgeawudE5NGtiM8hDO9Hd7tkyNUDT0Yv1hdCyJihKScZk4Oim\",\"updated_at\":\"2015-02-16T11:36:29.027-08:00\"},\"03aQPXSMz_5mejDlt1NDzA\":{\"token\":\"$2a$10$HzYfAQ6YSiPv.KAh6TQKKuOMlky6B63YRezDnD4d4wG/wlcu8hIN6\",\"expiry\":1425326764,\"last_token\":\"$2a$10$C8UJQBsZtAl038qgYnRhu.r2PGSoHCgSVRVx/psUICTmdzpzGC6Im\",\"updated_at\":\"2015-02-16T12:06:04.249-08:00\"},\"0QOBHTZEcJgud4rhAvUyog\":{\"token\":\"$2a$10$CGxEY6B5JwGCWb.RM0lqnOg8X.MusHwS2.lMvlrNB2iZsIzj2vh1e\",\"expiry\":1425326767},\"vzaI0XHanW5RpE57ixp1Rg\":{\"token\":\"$2a$10$5z3anLI29hQqbCDXmvYAF.TNcFcMI.R2LKh800duQFykGUj1lAU.m\",\"expiry\":1425327035},\"f8o-l1E5v4BwmWEEQ2ijPQ\":{\"token\":\"$2a$10$gzaqirhVAHUd/Nbk2llP1uSl8apIHR6s8BaerTingWqRXfHqdU6Du\",\"expiry\":1425327038},\"_8-DnAsTEm3INufIudHD8Q\":{\"token\":\"$2a$10$fIl/ReK6r1emrmMeckfv3OuKSK4AqwM3HGAHqIwJanjx0lMooAXTi\",\"expiry\":1425327081}}"], ["updated_at", "2015-02-16 20:11:22.133240"]]
+  [1m[35m (30.3ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.0ms)
+Completed 200 OK in 383ms (Views: 14.9ms | ActiveRecord: 188.2ms)
