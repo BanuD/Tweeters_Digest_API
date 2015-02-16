@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150214235153) do
 
   create_table "collectors", force: true do |t|
     t.text     "query"
-    t.string   "user_id"
-    t.string   "leader_id"
+    t.integer  "user_id"
+    t.integer  "leader_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.string   "name"
     t.string   "nickname"
     t.string   "image"
-    t.string   "user_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tweets", force: true do |t|
     t.text     "content"
-    t.string   "collector_id"
+    t.integer  "collector_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
