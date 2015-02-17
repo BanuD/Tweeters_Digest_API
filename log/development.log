@@ -8518,3 +8518,128 @@ Completed 200 OK in 93ms (Views: 0.3ms | ActiveRecord: 2.6ms)
   [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1[0m
   [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F" for 127.0.0.1 at 2015-02-17 13:26:04 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User" for 127.0.0.1 at 2015-02-17 13:26:04 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User&oauth_token=TOFsq9nrQ3FkAhhNek5oxk375AKy1xs7&oauth_verifier=r633iIDJn3hpaY2ZH6o3rDkRqxjocy7M" for 127.0.0.1 at 2015-02-17 13:26:04 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/#/", "resource_class"=>"User", "oauth_token"=>"TOFsq9nrQ3FkAhhNek5oxk375AKy1xs7", "oauth_verifier"=>"r633iIDJn3hpaY2ZH6o3rDkRqxjocy7M", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-17 13:26:04 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["confirmed_at", "2015-02-17 21:26:04.940239"], ["current_sign_in_at", "2015-02-17 21:26:04.940734"], ["last_sign_in_at", "2015-02-17 21:05:46.804986"], ["sign_in_count", 5], ["tokens", "{\"mFmCFYUcQ5uQUCRgT_UGWA\":{\"token\":\"$2a$10$7dePN1Dx9ilY6G91x3wVceEADQaRWs/znGzNM50bALYIL6dNsv2AK\",\"expiry\":1425416435,\"last_token\":\"$2a$10$3OrbcDv1gB/7pdex5Bo3Be2KFBq.svGhbR18RJ.xEupPw3Xsj4uty\",\"updated_at\":\"2015-02-17T13:00:35.683-08:00\"},\"iL_Vhbzf8T4k49TTQOcdsA\":{\"token\":\"$2a$10$OUMADbqNRZv6jqDfvbYgp.4KuRN8Z72bx1IyU5zqoyIC8mtM1NUMy\",\"expiry\":1425416455},\"GAlzmAKpPBCG3SrRJXBKZw\":{\"token\":\"$2a$10$0lMWpIZTh14aXY28Um25guQHN7VFph1OgG/D53J3BAz3RKp8vDdri\",\"expiry\":1425416649},\"_S9SBnsnM-yiWsvy3aJ3xQ\":{\"token\":\"$2a$10$./Y2SzcRNfG9iCZJGe4nxO4bNNGQbb5.9HAhCsJs9nZWqlZUj6gJO\",\"expiry\":1425417307,\"last_token\":\"$2a$10$FEhyrUT6NemNjeifDHMtYePaZzOeUyt/eI2pRXuMisblu.i4SqIxG\",\"updated_at\":\"2015-02-17T13:15:07.027-08:00\"},\"X9y3arQ2dEAu3RViesMHEA\":{\"token\":\"$2a$10$SDagZMQiLe2DWA1izqUsRuLZe0seCxVrdufGmEq0Z3.wIIFNuput2\",\"expiry\":1425417964}}"], ["updated_at", "2015-02-17 21:26:04.942601"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"mFmCFYUcQ5uQUCRgT_UGWA\":{\"token\":\"$2a$10$7dePN1Dx9ilY6G91x3wVceEADQaRWs/znGzNM50bALYIL6dNsv2AK\",\"expiry\":1425416435,\"last_token\":\"$2a$10$3OrbcDv1gB/7pdex5Bo3Be2KFBq.svGhbR18RJ.xEupPw3Xsj4uty\",\"updated_at\":\"2015-02-17T13:00:35.683-08:00\"},\"iL_Vhbzf8T4k49TTQOcdsA\":{\"token\":\"$2a$10$OUMADbqNRZv6jqDfvbYgp.4KuRN8Z72bx1IyU5zqoyIC8mtM1NUMy\",\"expiry\":1425416455},\"GAlzmAKpPBCG3SrRJXBKZw\":{\"token\":\"$2a$10$0lMWpIZTh14aXY28Um25guQHN7VFph1OgG/D53J3BAz3RKp8vDdri\",\"expiry\":1425416649},\"_S9SBnsnM-yiWsvy3aJ3xQ\":{\"token\":\"$2a$10$./Y2SzcRNfG9iCZJGe4nxO4bNNGQbb5.9HAhCsJs9nZWqlZUj6gJO\",\"expiry\":1425417307,\"last_token\":\"$2a$10$FEhyrUT6NemNjeifDHMtYePaZzOeUyt/eI2pRXuMisblu.i4SqIxG\",\"updated_at\":\"2015-02-17T13:15:07.027-08:00\"},\"X9y3arQ2dEAu3RViesMHEA\":{\"token\":\"$2a$10$SDagZMQiLe2DWA1izqUsRuLZe0seCxVrdufGmEq0Z3.wIIFNuput2\",\"expiry\":1425417964}}"], ["updated_at", "2015-02-17 21:26:04.952803"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.3ms)
+Completed 200 OK in 208ms (Views: 81.3ms | ActiveRecord: 6.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-17 13:26:05 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 1]]
+  [1m[35mTweet Load (0.8ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 2]]
+Completed 200 OK in 46ms (Views: 3.3ms | ActiveRecord: 5.5ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-17 13:26:11 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 81ms (Views: 71.1ms | ActiveRecord: 3.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-17 13:26:16 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"params"=>{"leader_id"=>27, "query"=>"I"}, "user_id"=>"1", "gathering"=>{}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 27 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"   ORDER BY "gatherings"."id" ASC LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 27 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.5ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 27 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "gatherings" ("created_at", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2015-02-17 21:26:16.991781"], ["leader_id", 27], ["query", "I"], ["updated_at", "2015-02-17 21:26:16.991781"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 27 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566713690016055296' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "tweet_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "@devbootcamp After initially enjoying CSS, I now fully understand the overwhelming disdain I typically hear about it. #U1W2C5"], ["created_at", "2015-02-17 21:26:17.150843"], ["gathering_id", 3], ["tweet_id", 566713690016055296], ["updated_at", "2015-02-17 21:26:17.150843"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '564945615264559105' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "tweet_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "@devbootcamp @AshleyGallman I know someone who can help u find one. @DavidSpinks from @CMX . Tbe Hub for community manager professionals."], ["created_at", "2015-02-17 21:26:17.155294"], ["gathering_id", 3], ["tweet_id", 564945615264559105], ["updated_at", "2015-02-17 21:26:17.155294"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '564933031924727808' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "tweet_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "@devbootcamp @EmilyHeistMoss I'm en route - see ya in 10/15min :-)"], ["created_at", "2015-02-17 21:26:17.158087"], ["gathering_id", 3], ["tweet_id", 564933031924727808], ["updated_at", "2015-02-17 21:26:17.158087"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '564925606899363841' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "tweet_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "@devbootcamp I just sent a message over to @EmilyHeistMoss I'm stuck at work waiting on a pending bug fix. Yargh!"], ["created_at", "2015-02-17 21:26:17.160885"], ["gathering_id", 3], ["tweet_id", 564925606899363841], ["updated_at", "2015-02-17 21:26:17.160885"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 187ms (Views: 0.5ms | ActiveRecord: 8.5ms)
