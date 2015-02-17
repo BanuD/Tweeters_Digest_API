@@ -15,7 +15,8 @@ class CollectorsController < ApplicationController
     else
       collector = Collector.create(leader_id: leader.id, user_id: user.id, query: params[:query])
     end
-    render json: collector
+
+    render json: {collector: collector}
   end
 
 
@@ -27,7 +28,7 @@ class CollectorsController < ApplicationController
       collector.destroy
     else
       collector.save
-      render json: collector
+      render json: {collector: collector}
     end
   end
 

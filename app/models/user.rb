@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many  :leaders
   has_many  :collectors
-  has_many  :tweets, :through => "collectors"
+  has_many  :tweets, through: :collectors
 
 
 
