@@ -11,7 +11,6 @@ class TwitterData
 
   # TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
 
-
   # returns an array of tweet objects
   def self.basic_search(args = {})
     tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|

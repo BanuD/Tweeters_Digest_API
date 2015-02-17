@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     get '/tweets' => "tweets#all_tweets"
     resources :leaders
-    resources :collectors do
+    resources :gatherings do
       resources :tweets
     end
   end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :collector do
-    
+  factory :gathering do
+
   end
 
 end
