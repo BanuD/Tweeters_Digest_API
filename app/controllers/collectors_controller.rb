@@ -1,7 +1,7 @@
 class CollectorsController < ApplicationController
 
   def create
-    leader = Leader.find_by(id: params[:leader_id]) #!!!!!!!url does not include leader_id-should come from the form.
+    leader = Leader.find_by(id: params[:leader_id])
     user = User.find_by(id: params[:user_id])
 
     collector = Collector.find_by(leader_id: leader.id, user_id: user.id)

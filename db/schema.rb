@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20150214235153) do
   end
 
   create_table "leaders", force: true do |t|
+    t.string   "twitter_id"
+    t.string   "handle"
+    t.string   "screen_name"
+    t.string   "profile_image_url_https"
     t.string   "name"
-    t.string   "nickname"
-    t.string   "image"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
   create_table "tweets", force: true do |t|
     t.text     "content"
     t.integer  "collector_id"
+    t.string   "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
