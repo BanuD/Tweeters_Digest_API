@@ -48,7 +48,7 @@ class GatheringsController < ApplicationController
   def index
     user = User.find_by(id: params[:user_id])
     gatherings = user.gatherings
-    render json: gatherings
+    render json: {gatherings: gatherings}
   end
 
 
