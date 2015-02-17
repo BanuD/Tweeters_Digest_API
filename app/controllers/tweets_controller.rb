@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
     user.collectors.each do |collector|
       tweets << collector.tweets
     end
-    render json: tweets
+    render json: {tweets: tweets}
   end
 
 end
