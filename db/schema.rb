@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "collectors", force: true do |t|
+  create_table "gatherings", force: true do |t|
     t.text     "query"
     t.integer  "user_id"
     t.integer  "leader_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
 
   create_table "tweets", force: true do |t|
     t.text     "content"
-    t.integer  "collector_id"
+    t.integer  "gathering_id"
     t.string   "tweet_id"
     t.datetime "created_at"
     t.datetime "updated_at"

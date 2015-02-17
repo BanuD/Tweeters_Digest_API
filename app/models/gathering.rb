@@ -1,4 +1,4 @@
-class Collector < ActiveRecord::Base
+class Gathering < ActiveRecord::Base
   has_many    :tweets, dependent: :destroy
   belongs_to  :user
   belongs_to  :leader

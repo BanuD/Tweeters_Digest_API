@@ -4,25 +4,25 @@ class TweetsController < ApplicationController
   def all_tweets
     user  = User.find_by(id: params[:user_id])
     tweets = []
-    user.collectors.each do |collector|
-      tweets << collector.tweets
+    user.gatherings.each do |gathering|
+      tweets << gathering.tweets
     end
     render json: {tweets: tweets}
   end
 
 
   def index
-    collector = collector.find_by(id: params[:collector_id])
-    tweets = collector.tweets
+    gathering = gathering.find_by(id: params[:gathering_id])
+    tweets = gathering.tweets
     render json: {tweets: tweets}
   end
 
 
   def create
-    collector = collector.find_by(id: params[:collector_id])
-    leader = Leader.find_by(id: collector.leader_id)
-    tweets = TwitterData.basic_search({handle: leader.handle, query: collector.query})
-    tweets.map { |tweet| Tweet.create(collector_id: collector.id, content: tweet.text, tweet_id: tweet.id) }
+    gathering = gathering.find_by(id: params[:gathering_id])
+    leader = Leader.find_by(id: gathering.leader_id)
+    tweets = TwitterData.basic_search({handle: leader.handle, query: gathering.query})
+    tweets.map { |tweet| Tweet.create(gathering_id: gathering.id, content: tweet.text, tweet_id: tweet.id) }
     render json: {tweets: tweets}
   end
 

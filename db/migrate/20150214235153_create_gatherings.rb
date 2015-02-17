@@ -1,6 +1,6 @@
-class CreateCollectors < ActiveRecord::Migration
+class CreateGatherings < ActiveRecord::Migration
   def change
-    create_table :collectors do |t|
+    create_table :gatherings do |t|
       t.text    :query
       t.integer :user_id
       t.integer :leader_id
