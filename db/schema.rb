@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.text     "query"
     t.integer  "user_id"
     t.integer  "leader_id"
+    t.string   "leader_handle"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.text     "content"
     t.integer  "gathering_id"
     t.string   "tweet_id"
+    t.string   "handle"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

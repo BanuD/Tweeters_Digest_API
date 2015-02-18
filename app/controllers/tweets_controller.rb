@@ -29,7 +29,7 @@ class TweetsController < ApplicationController
     else
       tweets = TwitterData.basic_search({handle: leader.handle, query: gathering.query})
     end
-    tweets.map { |tweet| Tweet.create(gathering_id: gathering.id, content: tweet.text, tweet_id: tweet.id) }
+    tweets.map { |tweet| Tweet.create(gathering_id: gathering.id, content: tweet.text, tweet_id: tweet.id, handle: leader.handle, url: tweet.url.to_s)}
     render json: {tweets: tweets}
   end
 
