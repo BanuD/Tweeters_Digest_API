@@ -16389,3 +16389,1032 @@ Processing by GatheringsController#index as HTML
   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
   [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
 Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:13:58 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:13:58.779-08:00\"}}"], ["updated_at", "2015-02-18 19:13:58.780657"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 202ms (Views: 0.6ms | ActiveRecord: 5.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:13:58 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 99ms (Views: 18.7ms | ActiveRecord: 2.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:13:58 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 12ms (Views: 1.2ms | ActiveRecord: 1.5ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:14:01 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE[0m  [["id", 1]]
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:01.872-08:00\"}}"], ["updated_at", "2015-02-18 19:14:01.873604"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 99ms (Views: 0.3ms | ActiveRecord: 2.3ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:14:02 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"}}"], ["updated_at", "2015-02-18 19:14:02.916087"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 88ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F" for 127.0.0.1 at 2015-02-18 11:14:04 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User" for 127.0.0.1 at 2015-02-18 11:14:04 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User&oauth_token=xak0DgpchlGIs9BA3ooTaLmeXNFfPhlW&oauth_verifier=axZopEVpV6pvsETUPkIERehzCpfPK1W0" for 127.0.0.1 at 2015-02-18 11:14:04 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/#/", "resource_class"=>"User", "oauth_token"=>"xak0DgpchlGIs9BA3ooTaLmeXNFfPhlW", "oauth_verifier"=>"axZopEVpV6pvsETUPkIERehzCpfPK1W0", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-18 11:14:05 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["confirmed_at", "2015-02-18 19:14:05.431863"], ["current_sign_in_at", "2015-02-18 19:14:05.432359"], ["last_sign_in_at", "2015-02-18 19:07:50.745026"], ["sign_in_count", 3], ["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$4OuxM4EYukiKOwbr.D28AuyWS52onkhJPDW94JFJUsGHgVrcfEzb6\",\"expiry\":1425496445}}"], ["updated_at", "2015-02-18 19:14:05.433918"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$4OuxM4EYukiKOwbr.D28AuyWS52onkhJPDW94JFJUsGHgVrcfEzb6\",\"expiry\":1425496445}}"], ["updated_at", "2015-02-18 19:14:05.437623"]]
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.0ms)
+Completed 200 OK in 103ms (Views: 11.7ms | ActiveRecord: 4.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:14:06 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:14:07 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.8ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:14:07 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:15:41 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"*", "user_id"=>"1", "gathering"=>{"query"=>"*", "leader_id"=>23}}
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.4ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.3ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-18 19:15:41.344668"], ["leader_handle", "davehoover"], ["leader_id", 23], ["query", "*"], ["updated_at", "2015-02-18 19:15:41.344668"], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 78ms (Views: 0.4ms | ActiveRecord: 3.5ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:15:42 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568103643422961665' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@lnhaynes Drop me an email at dave@devbootcamp.com and we'll find a time."], ["created_at", "2015-02-18 19:15:43.090721"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568103643422961665], ["updated_at", "2015-02-18 19:15:43.090721"], ["url", "https://twitter.com/davehoover/status/568103643422961665"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568102015236231168' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @ekristines: Another example of how amazing the Columbus dev community is. We love you all for welcoming us and for sharing your knowled…"], ["created_at", "2015-02-18 19:15:43.095376"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568102015236231168], ["updated_at", "2015-02-18 19:15:43.095376"], ["url", "https://twitter.com/davehoover/status/568102015236231168"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568077903080128512' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Happy for the team @noredink and @jscheur on their Series A! Onward! http://t.co/KLQooTz0Xf"], ["created_at", "2015-02-18 19:15:43.099172"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568077903080128512], ["updated_at", "2015-02-18 19:15:43.099172"], ["url", "https://twitter.com/davehoover/status/568077903080128512"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568077229667835904' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@mattdarby http://t.co/paCcyuSOvl"], ["created_at", "2015-02-18 19:15:43.102621"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568077229667835904], ["updated_at", "2015-02-18 19:15:43.102621"], ["url", "https://twitter.com/davehoover/status/568077229667835904"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568021753580163073' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@meaganewaller Hmmm, I'm not sure if it's working... 😉 http://t.co/rFR2YLVq6h"], ["created_at", "2015-02-18 19:15:43.106057"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568021753580163073], ["updated_at", "2015-02-18 19:15:43.106057"], ["url", "https://twitter.com/davehoover/status/568021753580163073"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568018377517748224' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Here's the Letterman interview of Grace Hopper that I mentioned at #IdeaPotluck last night: http://t.co/07T9iq6l7a\n\nAlso: @BornWCuriosity."], ["created_at", "2015-02-18 19:15:43.109574"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568018377517748224], ["updated_at", "2015-02-18 19:15:43.109574"], ["url", "https://twitter.com/davehoover/status/568018377517748224"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568011450683404288' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@2jeanine_l This was a real award, created in 1969. http://t.co/8XzRiVuRFK"], ["created_at", "2015-02-18 19:15:43.113196"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 568011450683404288], ["updated_at", "2015-02-18 19:15:43.113196"], ["url", "https://twitter.com/davehoover/status/568011450683404288"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567901777925775360' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "The first ever Computer Science \"Man of the Year\"\nhttps://t.co/ynkFRMu8Yf\nWho is this mystery man?\nI presented this at #IdeaPotluck tonight."], ["created_at", "2015-02-18 19:15:43.116676"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567901777925775360], ["updated_at", "2015-02-18 19:15:43.116676"], ["url", "https://twitter.com/davehoover/status/567901777925775360"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567848964969504768' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "My talk at tonight's #IdeaPotluck is titled:\n\nThe first ever Computer Science \"Man of the Year\""], ["created_at", "2015-02-18 19:15:43.120276"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567848964969504768], ["updated_at", "2015-02-18 19:15:43.120276"], ["url", "https://twitter.com/davehoover/status/567848964969504768"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567819976310198272' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@dastels Is the RubyMotion happening tonight? /cc @little_fig"], ["created_at", "2015-02-18 19:15:43.123752"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567819976310198272], ["updated_at", "2015-02-18 19:15:43.123752"], ["url", "https://twitter.com/davehoover/status/567819976310198272"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567762074387107843' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @devdame: Slides are up for my @Geekfest talk! Thanks so much to everyone for coming out! http://t.co/LOikRHf08n"], ["created_at", "2015-02-18 19:15:43.127049"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567762074387107843], ["updated_at", "2015-02-18 19:15:43.127049"], ["url", "https://twitter.com/davehoover/status/567762074387107843"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567701216298541057' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @alycit: Mentor Mixer tonight! Meet 14 hungry @devbootcamp students at 6pm @TheSaltMines North &amp; help bring them up in the cbus dev comm…"], ["created_at", "2015-02-18 19:15:43.130492"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567701216298541057], ["updated_at", "2015-02-18 19:15:43.130492"], ["url", "https://twitter.com/davehoover/status/567701216298541057"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567678936654413824' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@isaacsanders Can you say more about n? Is it an integer? Is it positive? 😜"], ["created_at", "2015-02-18 19:15:43.134012"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567678936654413824], ["updated_at", "2015-02-18 19:15:43.134012"], ["url", "https://twitter.com/davehoover/status/567678936654413824"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567678148599222277' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Current status: http://t.co/WME1ZbHpWM"], ["created_at", "2015-02-18 19:15:43.137491"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567678148599222277], ["updated_at", "2015-02-18 19:15:43.137491"], ["url", "https://twitter.com/davehoover/status/567678148599222277"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567671037630771201' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@coderica In my experience, the threshold for great apprenticeship experiences is companies bigger than 25 people. There's no upper limit."], ["created_at", "2015-02-18 19:15:43.140729"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567671037630771201], ["updated_at", "2015-02-18 19:15:43.140729"], ["url", "https://twitter.com/davehoover/status/567671037630771201"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567449051222638592' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @neiltyson: Good education is not what fills your head with facts but what stimulates curiosity. You then learn for the rest of your life"], ["created_at", "2015-02-18 19:15:43.144060"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567449051222638592], ["updated_at", "2015-02-18 19:15:43.144060"], ["url", "https://twitter.com/davehoover/status/567449051222638592"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567421907323322368' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @lanarakhman: GDI needs more TAs for an Intro to JS class starting tomorrow. Any volunteers? Spread the word. @zachpflederer @devdame @g…"], ["created_at", "2015-02-18 19:15:43.147479"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567421907323322368], ["updated_at", "2015-02-18 19:15:43.147479"], ["url", "https://twitter.com/davehoover/status/567421907323322368"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567408811779301376' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @SaraJChipps: Look at the amazing redesigned @girldevelopit site https://t.co/cgY8j4a6vQ. Pull requests welcome! https://t.co/zjaE4dTfvs"], ["created_at", "2015-02-18 19:15:43.150858"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567408811779301376], ["updated_at", "2015-02-18 19:15:43.150858"], ["url", "https://twitter.com/davehoover/status/567408811779301376"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567369710971678720' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@alycit @jenisicecreams @devbootcamp You're welcome?! 🍦"], ["created_at", "2015-02-18 19:15:43.154136"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567369710971678720], ["updated_at", "2015-02-18 19:15:43.154136"], ["url", "https://twitter.com/davehoover/status/567369710971678720"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567363050228170753' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @devdame: Come see me talk about programming and poetry over lunch tomorrow at @geekfest! IT WILL HOPEFULLY BE GREAT. http://t.co/UlZhjG…"], ["created_at", "2015-02-18 19:15:43.157257"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567363050228170753], ["updated_at", "2015-02-18 19:15:43.157257"], ["url", "https://twitter.com/davehoover/status/567363050228170753"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567334062659239936' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "I'm speaking at #IdeaPotluck tomorrow night. Can't wait to tell them a story about one of my heroes! http://t.co/QpjMoVJBDb"], ["created_at", "2015-02-18 19:15:43.160774"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567334062659239936], ["updated_at", "2015-02-18 19:15:43.160774"], ["url", "https://twitter.com/davehoover/status/567334062659239936"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567123350711853056' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@toreyhickman Can I buy a pair of Cbus Sea Lion leggings?"], ["created_at", "2015-02-18 19:15:43.164459"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567123350711853056], ["updated_at", "2015-02-18 19:15:43.164459"], ["url", "https://twitter.com/davehoover/status/567123350711853056"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567074600602050560' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@citizenparker Good to hear. We're looking forward to getting into it."], ["created_at", "2015-02-18 19:15:43.167774"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567074600602050560], ["updated_at", "2015-02-18 19:15:43.167774"], ["url", "https://twitter.com/davehoover/status/567074600602050560"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567013606303481858' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @KentBeck: the *craft* of programming begins with empathy, not formatting or languages or tools or algorithms or data structures"], ["created_at", "2015-02-18 19:15:43.171152"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 567013606303481858], ["updated_at", "2015-02-18 19:15:43.171152"], ["url", "https://twitter.com/davehoover/status/567013606303481858"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566960720999612416' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@TooManyNickLees Yeah, I'm back in chilly Chicago now. Surfing memories are keeping me warm... \n\n❄️😊🏄❄️"], ["created_at", "2015-02-18 19:15:43.174565"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566960720999612416], ["updated_at", "2015-02-18 19:15:43.174565"], ["url", "https://twitter.com/davehoover/status/566960720999612416"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566806828529369088' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Learning to surf in Costa Rica this week was amazing. The Vista Guapa Surf Camp has great teachers! 🏄 http://t.co/S5edAezT0z"], ["created_at", "2015-02-18 19:15:43.177878"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566806828529369088], ["updated_at", "2015-02-18 19:15:43.177878"], ["url", "https://twitter.com/davehoover/status/566806828529369088"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566574573454258176' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@gabi__voicu @MauriceRabb @devbootcamp @BornWCuriosity That's what I was hoping for. /cc @melissapierce"], ["created_at", "2015-02-18 19:15:43.181369"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566574573454258176], ["updated_at", "2015-02-18 19:15:43.181369"], ["url", "https://twitter.com/davehoover/status/566574573454258176"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566400918115995648' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @searls: 💚 to everyone from the EdgeCase family who worked to improve the lives of software developers in Central Ohio and beyond. It's …"], ["created_at", "2015-02-18 19:15:43.184699"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566400918115995648], ["updated_at", "2015-02-18 19:15:43.184699"], ["url", "https://twitter.com/davehoover/status/566400918115995648"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566400307416932352' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@mikelikesbikes Nice! I've always wanted to put squirrel developer on my resume. I wonder if there's a squirrel developer conference?"], ["created_at", "2015-02-18 19:15:43.188191"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566400307416932352], ["updated_at", "2015-02-18 19:15:43.188191"], ["url", "https://twitter.com/davehoover/status/566400307416932352"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566399505038188544' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@mikelikesbikes They put us on big old stand-up paddle boards. Super stable for beginners. Really tough to manage in the waves."], ["created_at", "2015-02-18 19:15:43.191627"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566399505038188544], ["updated_at", "2015-02-18 19:15:43.191627"], ["url", "https://twitter.com/davehoover/status/566399505038188544"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566341659395252224' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@MauriceRabb @devbootcamp Yep, I've been a supporter of @BornWCuriosity since the day it launched. 😊\n\n💙 Grace Hopper 💙"], ["created_at", "2015-02-18 19:15:43.195150"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566341659395252224], ["updated_at", "2015-02-18 19:15:43.195150"], ["url", "https://twitter.com/davehoover/status/566341659395252224"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566279617237876736' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@astamm78 With good teachers, no it wasn't hard to get up. I'm just not sure how it will be when I'm on my own. 🐣"], ["created_at", "2015-02-18 19:15:43.198592"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566279617237876736], ["updated_at", "2015-02-18 19:15:43.198592"], ["url", "https://twitter.com/davehoover/status/566279617237876736"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566272784263675904' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Proof that Staci and I actually got up on surfboards! #rookies #puravida http://t.co/cCrjUuCsWa"], ["created_at", "2015-02-18 19:15:43.201947"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566272784263675904], ["updated_at", "2015-02-18 19:15:43.201947"], ["url", "https://twitter.com/davehoover/status/566272784263675904"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566266466522001408' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @greggpollack: Know anyone in the Ruby community that deserves extra recognition?  Please nominate them for the Ruby Hero Awards. http:/…"], ["created_at", "2015-02-18 19:15:43.205706"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566266466522001408], ["updated_at", "2015-02-18 19:15:43.205706"], ["url", "https://twitter.com/davehoover/status/566266466522001408"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566264141627674624' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @lostghost: I love being able to do stuff like this: SICP Chicago w/ @dastels https://t.co/q9jKlvxo2q @BradsDealsDev"], ["created_at", "2015-02-18 19:15:43.209163"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566264141627674624], ["updated_at", "2015-02-18 19:15:43.209163"], ["url", "https://twitter.com/davehoover/status/566264141627674624"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566219023650533376' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @allisonrandal: Calling all women in free software/open source, submit for the FLOSS track at Grace Hopper 2015: http://t.co/kvgCSUuNR0"], ["created_at", "2015-02-18 19:15:43.212700"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 566219023650533376], ["updated_at", "2015-02-18 19:15:43.212700"], ["url", "https://twitter.com/davehoover/status/566219023650533376"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565908164537614336' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "@NateKandler A great time is being had. 😎 #puravida"], ["created_at", "2015-02-18 19:15:43.216264"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565908164537614336], ["updated_at", "2015-02-18 19:15:43.216264"], ["url", "https://twitter.com/davehoover/status/565908164537614336"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565905233742528512' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @cindygallop: “Grace Hopper started programming when she was 37.” I was “I’m 37. I’ll make this film” @melissapierce @katemacarthur http…"], ["created_at", "2015-02-18 19:15:43.219524"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565905233742528512], ["updated_at", "2015-02-18 19:15:43.219524"], ["url", "https://twitter.com/davehoover/status/565905233742528512"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565904405124247552' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @justkarenlo: It's crazy to think I'm in my last 1.5 weeks @devbootcamp. I've grown so much technically and personally; it's everything …"], ["created_at", "2015-02-18 19:15:43.223027"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565904405124247552], ["updated_at", "2015-02-18 19:15:43.223027"], ["url", "https://twitter.com/davehoover/status/565904405124247552"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565898997877846016' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @AnnaCurran: The tweet that inspired @melissapierce to make a film telling Grace Hopper's story. http://t.co/V8bfRiEar3 cc @twitter @the…"], ["created_at", "2015-02-18 19:15:43.226548"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565898997877846016], ["updated_at", "2015-02-18 19:15:43.226548"], ["url", "https://twitter.com/davehoover/status/565898997877846016"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565896987011055616' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @melissapierce: @KateMacArthur @ChicagoBlueSky @davehoover https://t.co/GBcdsWyKtP I have proof!!"], ["created_at", "2015-02-18 19:15:43.230024"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565896987011055616], ["updated_at", "2015-02-18 19:15:43.230024"], ["url", "https://twitter.com/davehoover/status/565896987011055616"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565895071006875648' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @onealexharms: Hey, y'all, there are a couple spots remaining in the meditation course starting Sunday http://t.co/VUShGvRpT5 😌"], ["created_at", "2015-02-18 19:15:43.233731"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565895071006875648], ["updated_at", "2015-02-18 19:15:43.233731"], ["url", "https://twitter.com/davehoover/status/565895071006875648"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565848916269084672' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "RT @djahandarie: Being in the right place at the right time usually requires a very long investment of being in the right place at the wron…"], ["created_at", "2015-02-18 19:15:43.237377"], ["gathering_id", 17], ["handle", "davehoover"], ["tweet_id", 565848916269084672], ["updated_at", "2015-02-18 19:15:43.237377"], ["url", "https://twitter.com/davehoover/status/565848916269084672"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.5ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 17]]
+Completed 200 OK in 440ms (Views: 12.3ms | ActiveRecord: 43.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:15:46 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.9ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:15:46 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:15:50 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>23}}
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Load (0.4ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 17]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 44]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 45]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 46]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 47]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 48]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 49]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 50]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 51]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 52]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 53]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 54]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 55]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 56]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 57]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 58]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 59]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 60]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 61]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 62]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 63]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 64]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 65]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 66]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 67]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 68]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 69]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 70]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 71]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 72]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 73]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 74]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 75]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 76]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 77]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 78]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 79]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 80]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 81]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 82]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 83]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 84]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 85]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "tweets" WHERE "tweets"."id" = $1  [["id", 86]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "gatherings" WHERE "gatherings"."id" = $1[0m  [["id", 17]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 28ms (Views: 0.4ms | ActiveRecord: 7.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:15:52 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>23}}
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 1.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:15:53 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (1.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$XY2poz2h8525.kQXaFjCvuuXR1djEvmgwAtEl.WvXNaQFlGArGYmq\",\"expiry\":1425496553,\"last_token\":\"$2a$10$4OuxM4EYukiKOwbr.D28AuyWS52onkhJPDW94JFJUsGHgVrcfEzb6\",\"updated_at\":\"2015-02-18T11:15:53.802-08:00\"}}"], ["updated_at", "2015-02-18 19:15:53.803578"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 171ms (Views: 0.2ms | ActiveRecord: 4.8ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:15:53 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:15:53 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:06 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"positive", "user_id"=>"1", "gathering"=>{"query"=>"positive", "leader_id"=>23}}
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.5ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-18 19:16:06.757850"], ["leader_handle", "davehoover"], ["leader_id", 23], ["query", "positive"], ["updated_at", "2015-02-18 19:16:06.757850"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:16:07 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.4ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567678936654413824' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@isaacsanders Can you say more about n? Is it an integer? Is it positive? 😜"], ["created_at", "2015-02-18 19:16:08.095610"], ["gathering_id", 18], ["handle", "davehoover"], ["tweet_id", 567678936654413824], ["updated_at", "2015-02-18 19:16:08.095610"], ["url", "https://twitter.com/davehoover/status/567678936654413824"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 18]]
+Completed 200 OK in 106ms (Views: 1.0ms | ActiveRecord: 3.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:16:12 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 75ms (Views: 72.6ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:12 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:23 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"positive I", "user_id"=>"1", "gathering"=>{"query"=>"positive I", "leader_id"=>23}}
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Load (0.4ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 18]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "tweets" WHERE "tweets"."id" = $1[0m  [["id", 87]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "gatherings" WHERE "gatherings"."id" = $1  [["id", 18]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-18 19:16:23.623370"], ["leader_handle", "davehoover"], ["leader_id", 23], ["query", "positive I"], ["updated_at", "2015-02-18 19:16:23.623370"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 3.3ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:16:25 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (2.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$5emDHOoVrV1R6I5yxls.w.5bvXCf0voU0PC143LW8/xM3MJusL./a\",\"expiry\":1425496585,\"last_token\":\"$2a$10$XY2poz2h8525.kQXaFjCvuuXR1djEvmgwAtEl.WvXNaQFlGArGYmq\",\"updated_at\":\"2015-02-18T11:16:25.336-08:00\"}}"], ["updated_at", "2015-02-18 19:16:25.336757"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 164ms (Views: 0.2ms | ActiveRecord: 4.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:16:25 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:25 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:16:26 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.3ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 19]]
+Completed 200 OK in 98ms (Views: 0.8ms | ActiveRecord: 1.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:16:27 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:27 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:48 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>1, "query"=>"positive or I", "user_id"=>"1", "gathering"=>{"query"=>"positive or I", "leader_id"=>1}}
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 1 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-18 19:16:48.773758"], ["leader_handle", "antimatter15"], ["leader_id", 1], ["query", "positive or I"], ["updated_at", "2015-02-18 19:16:48.773758"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:16:50 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (2.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$0WlvfpjN78F0vcPvOKmIXOPbovjacP1dkFpyVu/SnvFsB71Phnjaa\",\"expiry\":1425496610,\"last_token\":\"$2a$10$5emDHOoVrV1R6I5yxls.w.5bvXCf0voU0PC143LW8/xM3MJusL./a\",\"updated_at\":\"2015-02-18T11:16:50.390-08:00\"}}"], ["updated_at", "2015-02-18 19:16:50.390848"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 175ms (Views: 0.2ms | ActiveRecord: 4.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:16:50 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:16:50 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 11ms (Views: 8.9ms | ActiveRecord: 0.8ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:00 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"positive or I", "user_id"=>"1", "gathering"=>{"query"=>"positive or I", "leader_id"=>23}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 19]]
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "gatherings" WHERE "gatherings"."id" = $1  [["id", 19]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", "2015-02-18 19:17:00.145927"], ["leader_handle", "davehoover"], ["leader_id", 23], ["query", "positive or I"], ["updated_at", "2015-02-18 19:17:00.145927"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 76ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:17:03 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (3.7ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$nl9bLquHPoC8vJ5h9zGK/ezXEGowOBAzodD39//kwmJ.vJOWvKVyi\",\"expiry\":1425496623,\"last_token\":\"$2a$10$0WlvfpjN78F0vcPvOKmIXOPbovjacP1dkFpyVu/SnvFsB71Phnjaa\",\"updated_at\":\"2015-02-18T11:17:03.423-08:00\"}}"], ["updated_at", "2015-02-18 19:17:03.424017"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 166ms (Views: 0.2ms | ActiveRecord: 5.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:17:03 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:03 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:17:04 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 20]]
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 21]]
+Completed 200 OK in 189ms (Views: 1.2ms | ActiveRecord: 2.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:17:05 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.2ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:05 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:09 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>1, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>1}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.4ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 1 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Load (0.1ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 20]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "gatherings" WHERE "gatherings"."id" = $1  [["id", 20]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:19 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>23, "query"=>"positive OR I", "user_id"=>"1", "gathering"=>{"query"=>"positive OR I", "leader_id"=>23}}
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Load (0.1ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 21]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "gatherings" WHERE "gatherings"."id" = $1[0m  [["id", 21]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.2ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 23 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gatherings" ("created_at", "leader_handle", "leader_id", "query", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", "2015-02-18 19:17:19.054851"], ["leader_handle", "davehoover"], ["leader_id", 23], ["query", "positive OR I"], ["updated_at", "2015-02-18 19:17:19.054851"], ["user_id", 1]]
+  [1m[35m (1.7ms)[0m  COMMIT
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 3.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 11:17:20 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1[0m
+  [1m[35m (2.7ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"7LPw-iNo8QYHwwOMiv1Y9g\":{\"token\":\"$2a$10$t9TZnQXOWAzcgITRY.2u/uPMGHRwQpZSHXqdOGrFJ1oSh1rfF7rgG\",\"expiry\":1425496066,\"last_token\":\"$2a$10$ZBvVQ3F.MOKzIrVj/CEYfOYNFab6s.bhVnsFY/phd.qZA2sc/FoA6\",\"updated_at\":\"2015-02-18T11:07:47.495-08:00\"},\"UJeiY4oD4IjOVZ-cERMdPw\":{\"token\":\"$2a$10$dUfk7LXGgPoZoyg1Gu4WROKoODWoZVZu5fK1F0CjTJDipemEHDqFm\",\"expiry\":1425496438,\"last_token\":\"$2a$10$.KGUuLC7XIviUzZVrRSld.BwhdP2KRzwth/cj4mczNzDA9ee4bQoC\",\"updated_at\":\"2015-02-18T11:14:02.915-08:00\"},\"nT53JADRN2_lJvjetntOgg\":{\"token\":\"$2a$10$UeeeOfIradD7IPNPdU8QlOMvOPlCz8xnHGdRUjMiX8qAXPUJWmK8q\",\"expiry\":1425496640,\"last_token\":\"$2a$10$nl9bLquHPoC8vJ5h9zGK/ezXEGowOBAzodD39//kwmJ.vJOWvKVyi\",\"updated_at\":\"2015-02-18T11:17:20.524-08:00\"}}"], ["updated_at", "2015-02-18 19:17:20.525663"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 170ms (Views: 0.4ms | ActiveRecord: 4.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:17:20 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:20 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 11:17:21 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 23 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568021753580163073' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@meaganewaller Hmmm, I'm not sure if it's working... 😉 http://t.co/rFR2YLVq6h"], ["created_at", "2015-02-18 19:17:21.610584"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 568021753580163073], ["updated_at", "2015-02-18 19:17:21.610584"], ["url", "https://twitter.com/davehoover/status/568021753580163073"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568018377517748224' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "Here's the Letterman interview of Grace Hopper that I mentioned at #IdeaPotluck last night: http://t.co/07T9iq6l7a\n\nAlso: @BornWCuriosity."], ["created_at", "2015-02-18 19:17:21.614767"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 568018377517748224], ["updated_at", "2015-02-18 19:17:21.614767"], ["url", "https://twitter.com/davehoover/status/568018377517748224"]]
+  [1m[35m (0.7ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567901777925775360' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "The first ever Computer Science \"Man of the Year\"\nhttps://t.co/ynkFRMu8Yf\nWho is this mystery man?\nI presented this at #IdeaPotluck tonight."], ["created_at", "2015-02-18 19:17:21.618859"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 567901777925775360], ["updated_at", "2015-02-18 19:17:21.618859"], ["url", "https://twitter.com/davehoover/status/567901777925775360"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567678936654413824' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@isaacsanders Can you say more about n? Is it an integer? Is it positive? 😜"], ["created_at", "2015-02-18 19:17:21.622514"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 567678936654413824], ["updated_at", "2015-02-18 19:17:21.622514"], ["url", "https://twitter.com/davehoover/status/567678936654413824"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567334062659239936' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "I'm speaking at #IdeaPotluck tomorrow night. Can't wait to tell them a story about one of my heroes! http://t.co/QpjMoVJBDb"], ["created_at", "2015-02-18 19:17:21.626195"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 567334062659239936], ["updated_at", "2015-02-18 19:17:21.626195"], ["url", "https://twitter.com/davehoover/status/567334062659239936"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '567123350711853056' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@toreyhickman Can I buy a pair of Cbus Sea Lion leggings?"], ["created_at", "2015-02-18 19:17:21.629816"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 567123350711853056], ["updated_at", "2015-02-18 19:17:21.629816"], ["url", "https://twitter.com/davehoover/status/567123350711853056"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566960720999612416' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@TooManyNickLees Yeah, I'm back in chilly Chicago now. Surfing memories are keeping me warm... \n\n❄️😊🏄❄️"], ["created_at", "2015-02-18 19:17:21.633375"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566960720999612416], ["updated_at", "2015-02-18 19:17:21.633375"], ["url", "https://twitter.com/davehoover/status/566960720999612416"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566574573454258176' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@gabi__voicu @MauriceRabb @devbootcamp @BornWCuriosity That's what I was hoping for. /cc @melissapierce"], ["created_at", "2015-02-18 19:17:21.637009"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566574573454258176], ["updated_at", "2015-02-18 19:17:21.637009"], ["url", "https://twitter.com/davehoover/status/566574573454258176"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566400307416932352' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@mikelikesbikes Nice! I've always wanted to put squirrel developer on my resume. I wonder if there's a squirrel developer conference?"], ["created_at", "2015-02-18 19:17:21.640830"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566400307416932352], ["updated_at", "2015-02-18 19:17:21.640830"], ["url", "https://twitter.com/davehoover/status/566400307416932352"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566341659395252224' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@MauriceRabb @devbootcamp Yep, I've been a supporter of @BornWCuriosity since the day it launched. 😊\n\n💙 Grace Hopper 💙"], ["created_at", "2015-02-18 19:17:21.644407"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566341659395252224], ["updated_at", "2015-02-18 19:17:21.644407"], ["url", "https://twitter.com/davehoover/status/566341659395252224"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566279617237876736' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "@astamm78 With good teachers, no it wasn't hard to get up. I'm just not sure how it will be when I'm on my own. 🐣"], ["created_at", "2015-02-18 19:17:21.647909"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566279617237876736], ["updated_at", "2015-02-18 19:17:21.647909"], ["url", "https://twitter.com/davehoover/status/566279617237876736"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566272784263675904' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "Proof that Staci and I actually got up on surfboards! #rookies #puravida http://t.co/cCrjUuCsWa"], ["created_at", "2015-02-18 19:17:21.651565"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566272784263675904], ["updated_at", "2015-02-18 19:17:21.651565"], ["url", "https://twitter.com/davehoover/status/566272784263675904"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '566264141627674624' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "RT @lostghost: I love being able to do stuff like this: SICP Chicago w/ @dastels https://t.co/q9jKlvxo2q @BradsDealsDev"], ["created_at", "2015-02-18 19:17:21.655148"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 566264141627674624], ["updated_at", "2015-02-18 19:17:21.655148"], ["url", "https://twitter.com/davehoover/status/566264141627674624"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565905233742528512' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "RT @cindygallop: “Grace Hopper started programming when she was 37.” I was “I’m 37. I’ll make this film” @melissapierce @katemacarthur http…"], ["created_at", "2015-02-18 19:17:21.658727"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 565905233742528512], ["updated_at", "2015-02-18 19:17:21.658727"], ["url", "https://twitter.com/davehoover/status/565905233742528512"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565904405124247552' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "RT @justkarenlo: It's crazy to think I'm in my last 1.5 weeks @devbootcamp. I've grown so much technically and personally; it's everything …"], ["created_at", "2015-02-18 19:17:21.662198"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 565904405124247552], ["updated_at", "2015-02-18 19:17:21.662198"], ["url", "https://twitter.com/davehoover/status/565904405124247552"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.2ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '565896987011055616' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "RT @melissapierce: @KateMacArthur @ChicagoBlueSky @davehoover https://t.co/GBcdsWyKtP I have proof!!"], ["created_at", "2015-02-18 19:17:21.665696"], ["gathering_id", 22], ["handle", "davehoover"], ["tweet_id", 565896987011055616], ["updated_at", "2015-02-18 19:17:21.665696"], ["url", "https://twitter.com/davehoover/status/565896987011055616"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 22]]
+Completed 200 OK in 200ms (Views: 4.5ms | ActiveRecord: 16.8ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 11:17:23 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 11:17:23 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.6ms)
