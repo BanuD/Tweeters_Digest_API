@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.text     "content"
     t.integer  "gathering_id"
     t.string   "tweet_id"
+    t.string   "handle"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

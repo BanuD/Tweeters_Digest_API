@@ -13,15 +13,17 @@ class TwitterData
 
   # returns an array of tweet objects with specific query
   def self.basic_search(args = {})
-    tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
+    user = "@" + args[:handle]
+    tweets = @client.search("from:#{user} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end
     tweets
   end
 
-  # returns an array of all tweet objects belonging to specific leader ##########!!!!!!!!!!!!! TEST THISSSSSSS!!!!!!!!!!!!!
+  # returns an array of all tweet objects belonging to specific leader
   def self.complete_search(args = {query: " "})
-    tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
+    user = "@" + args[:handle]
+    tweets = @client.search("from:#{user} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end
     tweets
@@ -38,6 +40,26 @@ class TwitterData
   end
 
 end
+
+# Operator  Finds tweets...
+# twitter search  containing both "twitter" and "search". This is the default operator.
+# "happy hour"  containing the exact phrase "happy hour".
+# love OR hate  containing either "love" or "hate" (or both).
+# beer -root  containing "beer" but not "root".
+# #haiku  containing the hashtag "haiku".
+# from:alexiskold sent from person "alexiskold".
+# to:techcrunch sent to person "techcrunch".
+# @mashable referencing person "mashable".
+# "happy hour" near:"san francisco" containing the exact phrase "happy hour" and sent near "san francisco".
+# near:NYC within:15mi  sent within 15 miles of "NYC".
+# superhero since:2010-12-27  containing "superhero" and sent since date "2010-12-27" (year-month-day).
+# ftw until:2010-12-27  containing "ftw" and sent up to date "2010-12-27".
+# movie -scary :) containing "movie", but not "scary", and with a positive attitude.
+# flight :( containing "flight" and with a negative attitude.
+# traffic ? containing "traffic" and asking a question.
+# hilarious filter:links  containing "hilarious" and linking to URLs.
+# news source:twitterfeed containing "news" and entered via TwitterFeed
+
 
 # http://www.rubydoc.info/gems/twitter/Twitter/REST/FriendsAndFollowers#friends-instance_method
 # friends(user, options = {}) => Twitter::Cursor
