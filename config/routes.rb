@@ -1,7 +1,9 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
-  # get 'getTweets' => "application#getTweets"
+  mount Sidekiq::Web, at: "/sidekiq"
 
   resources :users do
     get '/tweets' => "tweets#all_tweets"
@@ -10,5 +12,6 @@ Rails.application.routes.draw do
       resources :tweets
     end
   end
+
 
 end
