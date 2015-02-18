@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.integer  "user_id"
     t.integer  "leader_id"
     t.string   "leader_handle"
+    t.integer  "relevant_tweets"
+    t.integer  "all_tweets"
+    t.integer  "ratio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
