@@ -4,6 +4,7 @@ class CreateGatherings < ActiveRecord::Migration
       t.text    :query
       t.integer :user_id
       t.integer :leader_id
+      t.string  :leader_handle
 
       t.timestamps
     end
