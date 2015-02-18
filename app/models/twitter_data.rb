@@ -23,8 +23,6 @@ class TwitterData
   # returns an array of all tweet objects belonging to specific leader
   def self.complete_search(args = {query: " "})
     user = "@" + args[:handle]
-    p user
-    p '#' * 40
     tweets = @client.search("from:#{user} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end
