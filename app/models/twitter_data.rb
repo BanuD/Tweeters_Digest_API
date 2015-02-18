@@ -11,8 +11,16 @@ class TwitterData
 
   # TwitterData.basic_search({handle: "DevBootcamp", query: "gym"})
 
-  # returns an array of tweet objects
+  # returns an array of tweet objects with specific query
   def self.basic_search(args = {})
+    tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
+      tweet
+    end
+    tweets
+  end
+
+  # returns an array of all tweet objects belonging to specific leader ##########!!!!!!!!!!!!! TEST THISSSSSSS!!!!!!!!!!!!!
+  def self.complete_search(args = {query: " "})
     tweets = @client.search("to:#{args[:handle]} #{args[:query]}", :result_type => "recent").map do |tweet|
       tweet
     end

@@ -8643,3 +8643,7 @@ Processing by GatheringsController#create as HTML
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "tweet_id", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "@devbootcamp I just sent a message over to @EmilyHeistMoss I'm stuck at work waiting on a pending bug fix. Yargh!"], ["created_at", "2015-02-17 21:26:17.160885"], ["gathering_id", 3], ["tweet_id", 564925606899363841], ["updated_at", "2015-02-17 21:26:17.160885"]]
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
 Completed 200 OK in 187ms (Views: 0.5ms | ActiveRecord: 8.5ms)
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+  [1m[36mGathering Load (0.7ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"[0m
+  [1m[35mTweet Load (0.7ms)[0m  SELECT "tweets".* FROM "tweets"
+  [1m[36mTweet Load (0.8ms)[0m  [1mSELECT  "tweets".* FROM "tweets"   ORDER BY "tweets"."id" DESC LIMIT 1[0m
