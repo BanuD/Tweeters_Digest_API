@@ -13,7 +13,13 @@ class GatheringsController < ApplicationController
     gathering = Gathering.find_by(leader_id: leader.id, user_id: user.id)
     gathering.destroy if gathering
 
-    gathering = Gathering.create(leader_id: leader.id, user_id: user.id, query: params[:query], leader_handle: leader.handle) unless params[:query] == ""
+
+    relevant_tweets = TwitterData.basic_search({handle: leader.handle, query: params[:query]}).count
+    all_tweets = TwitterData.complete_search({handle: leader.handle}).count
+    all_tweets = 0.01 if all_tweets == 0
+    ratio = (relevant_tweets.to_f / all_tweets).round(2)
+
+    gathering = Gathering.create(leader_id: leader.id, user_id: user.id, query: params[:query], leader_handle: leader.handle, relevant_tweets: relevant_tweets, all_tweets: all_tweets, ratio: ratio) unless params[:query] == ""
 
     leader.query = params[:query]
     leader.save
