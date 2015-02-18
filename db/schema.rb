@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.string   "profile_image_url_https"
     t.string   "name"
     t.integer  "user_id"
+    t.text     "query",                   default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
