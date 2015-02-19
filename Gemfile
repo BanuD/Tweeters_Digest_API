@@ -15,6 +15,9 @@ gem 'redis', '3.2.0'
 #queue jobs at a specific time
 gem 'clockwork'
 
+# For the twilio api
+gem 'twilio-ruby'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
