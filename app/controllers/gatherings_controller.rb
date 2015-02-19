@@ -19,7 +19,9 @@ class GatheringsController < ApplicationController
     all_tweets = 0.01 if all_tweets == 0
     ratio = (relevant_tweets.to_f / all_tweets).round(2)
 
-    gathering = Gathering.create(leader_id: leader.id, user_id: user.id, query: params[:query], leader_handle: leader.handle, relevant_tweets: relevant_tweets, all_tweets: all_tweets, ratio: ratio) unless params[:query] == ""
+    phone_number = params[:phone_number] || ""
+
+    gathering = Gathering.create(leader_id: leader.id, user_id: user.id, query: params[:query], leader_handle: leader.handle, relevant_tweets: relevant_tweets, all_tweets: all_tweets, ratio: ratio, phone_number: phone_number) unless params[:query] == ""
 
     leader.query = params[:query]
     leader.save

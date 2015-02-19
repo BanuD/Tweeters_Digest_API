@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.integer  "relevant_tweets"
     t.integer  "all_tweets"
     t.float    "ratio"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

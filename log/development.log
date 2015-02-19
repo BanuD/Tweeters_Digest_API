@@ -1,0 +1,30 @@
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mTweet Load (16.7ms)[0m  [1mSELECT "tweets".* FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseTokenAuthCreateUsers (20150214054906)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (8.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255) NOT NULL, "uid" character varying(255) DEFAULT '' NOT NULL, "encrypted_password" character varying(255) DEFAULT '' NOT NULL, "reset_password_token" character varying(255), "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying(255), "last_sign_in_ip" character varying(255), "confirmation_token" character varying(255), "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying(255), "name" character varying(255), "nickname" character varying(255), "image" character varying(255), "email" character varying(255), "tokens" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users"  ("uid", "provider")[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214054906"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateLeaders (20150214234946)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (2.8ms)[0m  CREATE TABLE "leaders" ("id" serial primary key, "twitter_id" character varying(255), "handle" character varying(255), "screen_name" character varying(255), "profile_image_url_https" character varying(255), "name" character varying(255), "user_id" integer, "query" text DEFAULT '', "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214234946"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateTweets (20150214235015)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.1ms)[0m  CREATE TABLE "tweets" ("id" serial primary key, "content" text, "gathering_id" integer, "tweet_id" character varying(255), "handle" character varying(255), "url" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214235015"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Migrating to CreateGatherings (20150214235153)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "gatherings" ("id" serial primary key, "query" text, "user_id" integer, "leader_id" integer, "leader_handle" character varying(255), "relevant_tweets" integer, "all_tweets" integer, "ratio" float, "phone_number" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214235153"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m

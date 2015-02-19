@@ -5,5 +5,6 @@ class TweetsWorker
 
   def perform
     BackgroundJobsHelper.tweets_for_all_users
+
   end
 end
