@@ -7,7 +7,7 @@ class CreateTweets < ActiveRecord::Migration
       t.string   :handle
       t.string   :url
       t.string   :leader_pic_url
-      t.date_time :tweet_creation_time
+      t.datetime :tweet_creation_time
 
       t.timestamps
     end

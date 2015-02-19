@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.string   "handle"
     t.string   "url"
     t.string   "leader_pic_url"
+    t.datetime "tweet_creation_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
