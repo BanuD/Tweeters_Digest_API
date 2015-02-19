@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.integer  "relevant_tweets"
     t.integer  "all_tweets"
     t.float    "ratio"
+    t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150214235153) do
     t.string   "tweet_id"
     t.string   "handle"
     t.string   "url"
+    t.string   "leader_pic_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
