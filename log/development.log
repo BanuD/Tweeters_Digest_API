@@ -28,3 +28,2253 @@ Migrating to CreateGatherings (20150214235153)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150214235153"]]
   [1m[35m (0.5ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F" for 127.0.0.1 at 2015-02-18 18:59:26 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User" for 127.0.0.1 at 2015-02-18 18:59:26 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User&oauth_token=m789Wv5UEeY5PkjSq9dyPk1G5LAyTTaR&oauth_verifier=HhTSS2k2eOwChXLVVAzTWqSDUnBLGlSS" for 127.0.0.1 at 2015-02-18 18:59:26 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/#/", "resource_class"=>"User", "oauth_token"=>"m789Wv5UEeY5PkjSq9dyPk1G5LAyTTaR", "oauth_verifier"=>"HhTSS2k2eOwChXLVVAzTWqSDUnBLGlSS", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-18 18:59:27 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("confirmed_at", "created_at", "current_sign_in_at", "current_sign_in_ip", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "name", "nickname", "provider", "sign_in_count", "tokens", "uid", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING "id"  [["confirmed_at", "2015-02-19 02:59:27.648500"], ["created_at", "2015-02-19 02:59:27.651752"], ["current_sign_in_at", "2015-02-19 02:59:27.649041"], ["current_sign_in_ip", "127.0.0.1"], ["encrypted_password", "$2a$10$yvYASn5p0tVQxcP2FWBo3eyv7K/roKiF9itiZevg/0pt6S3HTflyu"], ["image", "http://pbs.twimg.com/profile_images/549111665736687617/A-4Ni_t9_normal.jpeg"], ["last_sign_in_at", "2015-02-19 02:59:27.649041"], ["last_sign_in_ip", "127.0.0.1"], ["name", "Aaron"], ["nickname", "stompy_smash"], ["provider", "twitter"], ["sign_in_count", 1], ["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"expiry\":1425524367}}"], ["uid", "2166387026"], ["updated_at", "2015-02-19 02:59:27.651752"]]
+  [1m[36mLeader Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '15407883' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.135936"], ["handle", "antimatter15"], ["name", "Kevin Kwok"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/1052311489/penguin-chick2_normal.jpg"], ["screen_name", "antimatter15"], ["twitter_id", 15407883], ["updated_at", "2015-02-19 02:59:28.135936"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '22064179' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.140343"], ["handle", "angelamfield"], ["name", "Angela Field"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/519946684751556608/FIH-rlMa_normal.jpeg"], ["screen_name", "angelamfield"], ["twitter_id", 22064179], ["updated_at", "2015-02-19 02:59:28.140343"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '89128695' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.144738"], ["handle", "J_LuseLuse"], ["name", "Jordan Luse"], ["profile_image_url_https", "https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png"], ["screen_name", "J_LuseLuse"], ["twitter_id", 89128695], ["updated_at", "2015-02-19 02:59:28.144738"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '141899944' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.147532"], ["handle", "Mtvillwock"], ["name", "Matthew T. Villwock"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/501581395308077057/TYbbOKgA_normal.jpeg"], ["screen_name", "Mtvillwock"], ["twitter_id", 141899944], ["updated_at", "2015-02-19 02:59:28.147532"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '165878189' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.150382"], ["handle", "maicolchang"], ["name", "Michael Chang"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/521460780051349504/5j8gISb1_normal.jpeg"], ["screen_name", "maicolchang"], ["twitter_id", 165878189], ["updated_at", "2015-02-19 02:59:28.150382"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '301740325' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.153572"], ["handle", "godspeedyoo"], ["name", "Joseph"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/551110088690130945/n8Sse4Kz_normal.jpeg"], ["screen_name", "godspeedyoo"], ["twitter_id", 301740325], ["updated_at", "2015-02-19 02:59:28.153572"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2275925132' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.156294"], ["handle", "danielkelley123"], ["name", "Daniel Kelley"], ["profile_image_url_https", "https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png"], ["screen_name", "danielkelley123"], ["twitter_id", 2275925132], ["updated_at", "2015-02-19 02:59:28.156294"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2439040246' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.159719"], ["handle", "charlesgardens"], ["name", "charlie gardens"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/449006260797861889/u8Gb4oQy_normal.jpeg"], ["screen_name", "charlesgardens"], ["twitter_id", 2439040246], ["updated_at", "2015-02-19 02:59:28.159719"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2799239421' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.163597"], ["handle", "ruslanid01"], ["name", "Ruslan Idrisov"], ["profile_image_url_https", "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png"], ["screen_name", "ruslanid01"], ["twitter_id", 2799239421], ["updated_at", "2015-02-19 02:59:28.163597"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2786482483' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.166994"], ["handle", "justkarenlo"], ["name", "Karen Lo"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/506872080986435584/or-SsR90_normal.jpeg"], ["screen_name", "justkarenlo"], ["twitter_id", 2786482483], ["updated_at", "2015-02-19 02:59:28.166994"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2849280636' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.170232"], ["handle", "BrianDBC14"], ["name", "Brian DBC"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/520439441991540736/dbRuIWI8_normal.jpeg"], ["screen_name", "BrianDBC14"], ["twitter_id", 2849280636], ["updated_at", "2015-02-19 02:59:28.170232"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '301211922' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.173252"], ["handle", "JoinScribbly"], ["name", "scribbly"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/2412037522/yntkjjhhqbqya15w2w8d_normal.png"], ["screen_name", "JoinScribbly"], ["twitter_id", 301211922], ["updated_at", "2015-02-19 02:59:28.173252"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2800833371' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.195480"], ["handle", "alt_jmac"], ["name", "Jeremy McIntyre"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/517822262523592704/ZOeNySob_normal.jpeg"], ["screen_name", "alt_jmac"], ["twitter_id", 2800833371], ["updated_at", "2015-02-19 02:59:28.195480"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2243433061' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.199124"], ["handle", "BanuDalamanli"], ["name", "Banu Dalamanli"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/443430979567222784/wf1ziVKa_normal.jpeg"], ["screen_name", "BanuDalamanli"], ["twitter_id", 2243433061], ["updated_at", "2015-02-19 02:59:28.199124"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '388022853' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.202675"], ["handle", "maxwell_mears"], ["name", "Maxwell"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/517788178288107522/6kdiMBE9_normal.jpeg"], ["screen_name", "maxwell_mears"], ["twitter_id", 388022853], ["updated_at", "2015-02-19 02:59:28.202675"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2777872392' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.205602"], ["handle", "WilliamKTsang"], ["name", "William Tsang"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/552167261520142336/V9WcXyOW_normal.png"], ["screen_name", "WilliamKTsang"], ["twitter_id", 2777872392], ["updated_at", "2015-02-19 02:59:28.205602"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '147972709' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.209582"], ["handle", "rexsalisbury"], ["name", "Rex Salisbury"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/519827803299012608/xdQ75iKR_normal.jpeg"], ["screen_name", "rexsalisbury"], ["twitter_id", 147972709], ["updated_at", "2015-02-19 02:59:28.209582"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2566417889' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.213121"], ["handle", "Aliesmali"], ["name", "Ali esmali"], ["profile_image_url_https", "https://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png"], ["screen_name", "Aliesmali"], ["twitter_id", 2566417889], ["updated_at", "2015-02-19 02:59:28.213121"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2833315758' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.215871"], ["handle", "www_coder_in"], ["name", "Nilesh Dharamcy"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/520346414467915776/HgrQ7Kde_normal.jpeg"], ["screen_name", "www_coder_in"], ["twitter_id", 2833315758], ["updated_at", "2015-02-19 02:59:28.215871"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2751201662' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.218554"], ["handle", "victoriaseee"], ["name", "Victoria C"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/519573179044339714/LG8xQ_UI_normal.jpeg"], ["screen_name", "victoriaseee"], ["twitter_id", 2751201662], ["updated_at", "2015-02-19 02:59:28.218554"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '2528148649' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.223269"], ["handle", "fialho_vivian"], ["name", "Vivian Fialho"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/471380467879378944/idmkOGlE_normal.jpeg"], ["screen_name", "fialho_vivian"], ["twitter_id", 2528148649], ["updated_at", "2015-02-19 02:59:28.223269"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '728153' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.227188"], ["handle", "sprocket"], ["name", "John Foley"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/1919196486/ATAT_normal.jpg"], ["screen_name", "sprocket"], ["twitter_id", 728153], ["updated_at", "2015-02-19 02:59:28.227188"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '57853' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.244251"], ["handle", "davehoover"], ["name", "Dave Hoover"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/3596476760/79cb669130fb93ba6844d367fa85b385_normal.png"], ["screen_name", "davehoover"], ["twitter_id", 57853], ["updated_at", "2015-02-19 02:59:28.244251"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '15740685' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.248073"], ["handle", "russolsen"], ["name", "russolsen"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/537342993166893057/r2TA1e-J_normal.jpeg"], ["screen_name", "russolsen"], ["twitter_id", 15740685], ["updated_at", "2015-02-19 02:59:28.248073"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '827565522' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.252257"], ["handle", "asdvaughan"], ["name", "Andrew Vaughan"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/519532575031713792/Fm4zj2Zm_normal.jpeg"], ["screen_name", "asdvaughan"], ["twitter_id", 827565522], ["updated_at", "2015-02-19 02:59:28.252257"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '850107536' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.256002"], ["handle", "codeorg"], ["name", "Code.org"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/562295957383954432/HznhvglX_normal.png"], ["screen_name", "codeorg"], ["twitter_id", 850107536], ["updated_at", "2015-02-19 02:59:28.256002"], ["user_id", 1]]
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE "leaders"."twitter_id" = '409369753' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "leaders" ("created_at", "handle", "name", "profile_image_url_https", "screen_name", "twitter_id", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2015-02-19 02:59:28.259266"], ["handle", "devbootcamp"], ["name", "Dev Bootcamp"], ["profile_image_url_https", "https://pbs.twimg.com/profile_images/478970119037546497/CFC-_kSg_normal.png"], ["screen_name", "devbootcamp"], ["twitter_id", 409369753], ["updated_at", "2015-02-19 02:59:28.259266"], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"expiry\":1425524367}}"], ["updated_at", "2015-02-19 02:59:28.263419"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.5ms)
+Completed 200 OK in 829ms (Views: 10.9ms | ActiveRecord: 26.0ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 18:59:28 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.8ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 18:59:37 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"}}"], ["updated_at", "2015-02-19 02:59:37.716802"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 170ms (Views: 0.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/sidekiq" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-02-18 18:59:41 -0800
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-02-18 18:59:42 -0800
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:44 -0800
+
+
+Started GET "/sidekiq/" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-02-18 18:59:45 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:53 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 18:59:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:03 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-02-18 19:00:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:08 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:10 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:14 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:16 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:18 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:20 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:22 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:24 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:26 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:30 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:36 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:38 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:40 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:42 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:44 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:46 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:48 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:00:50 -0800
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:26 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:30 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:36 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:38 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:40 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:42 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:44 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:46 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:48 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:50 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:52 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:54 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:56 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:03:58 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:01 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:04 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 19:04:05 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (1.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+Completed 401 Unauthorized in 127ms (Views: 0.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F" for 127.0.0.1 at 2015-02-18 19:04:07 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User" for 127.0.0.1 at 2015-02-18 19:04:07 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User&oauth_token=urmhSaDOkpsL6dbEYD11evvUJ4ezpAT6&oauth_verifier=YVsmV9StkYsNmwo2SLRoEy8pIUJPIPFx" for 127.0.0.1 at 2015-02-18 19:04:07 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/#/", "resource_class"=>"User", "oauth_token"=>"urmhSaDOkpsL6dbEYD11evvUJ4ezpAT6", "oauth_verifier"=>"YVsmV9StkYsNmwo2SLRoEy8pIUJPIPFx", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:07 -0800
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-18 19:04:07 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "sign_in_count" = $3, "tokens" = $4, "updated_at" = $5 WHERE "users"."id" = 1[0m  [["confirmed_at", "2015-02-19 03:04:07.895976"], ["current_sign_in_at", "2015-02-19 03:04:07.896490"], ["sign_in_count", 2], ["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647}}"], ["updated_at", "2015-02-19 03:04:07.898102"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647}}"], ["updated_at", "2015-02-19 03:04:07.908462"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.1ms)
+Completed 200 OK in 109ms (Views: 11.8ms | ActiveRecord: 3.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:04:08 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 108ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:10 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:04:13 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 92ms (Views: 82.0ms | ActiveRecord: 2.4ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:04:13 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:16 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:19 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:04:21 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>14, "query"=>"on", "user_id"=>"1", "gathering"=>{"query"=>"on", "leader_id"=>14}}
+  [1m[35mLeader Load (0.5ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.4ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "gatherings" ("all_tweets", "created_at", "leader_handle", "leader_id", "phone_number", "query", "ratio", "relevant_tweets", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["all_tweets", 0], ["created_at", "2015-02-19 03:04:21.751085"], ["leader_handle", "BanuDalamanli"], ["leader_id", 14], ["phone_number", ""], ["query", "on"], ["ratio", 0.0], ["relevant_tweets", 0], ["updated_at", "2015-02-19 03:04:21.751085"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mLeader Exists (0.4ms)[0m  SELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2243433061' AND "leaders"."id" != 14) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "leaders" SET "query" = $1, "updated_at" = $2 WHERE "leaders"."id" = 14[0m  [["query", "on"], ["updated_at", "2015-02-19 03:04:21.758741"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 252ms (Views: 0.6ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:22 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:04:24 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.3ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 1]]
+Completed 200 OK in 104ms (Views: 1.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:40 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.6ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:04:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:04 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:06 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:09 -0800
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.9ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.5ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "Another awesome late night @devbootcamp  working on our final project!"], ["created_at", "2015-02-19 03:11:10.122997"], ["gathering_id", 1], ["handle", "BanuDalamanli"], ["tweet_id", 568244705621774337], ["updated_at", "2015-02-19 03:11:10.122997"], ["url", "https://twitter.com/BanuDalamanli/status/568244705621774337"]]
+  [1m[35m (4.0ms)[0m  COMMIT
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:18 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:24 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:11:26 -0800
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM "gatherings"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:16 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:22 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:25 -0800
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:46 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:52 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:12:58 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:04 -0800
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:10 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:14 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:16 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:18 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:20 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:23 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:26 -0800
+
+
+Started GET "/auth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F" for 127.0.0.1 at 2015-02-18 19:13:26 -0800
+
+
+Started GET "/omniauth/twitter?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User" for 127.0.0.1 at 2015-02-18 19:13:26 -0800
+
+
+Started GET "/omniauth/twitter/callback?auth_origin_url=http%3A%2F%2Flocalhost%3A8000%2F%23%2F&resource_class=User&oauth_token=c1xUBaKZne5ASOofrvyDtRJfmLdZgxMQ&oauth_verifier=kcamoqpmrg8J4YRHNUncn3iWjlRWVswo" for 127.0.0.1 at 2015-02-18 19:13:27 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#redirect_callbacks as HTML
+  Parameters: {"auth_origin_url"=>"http://localhost:8000/#/", "resource_class"=>"User", "oauth_token"=>"c1xUBaKZne5ASOofrvyDtRJfmLdZgxMQ", "oauth_verifier"=>"kcamoqpmrg8J4YRHNUncn3iWjlRWVswo", "provider"=>"twitter"}
+Redirected to http://localhost:3000/auth/twitter/callback
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/twitter/callback" for 127.0.0.1 at 2015-02-18 19:13:27 -0800
+Processing by DeviseTokenAuth::OmniauthCallbacksController#omniauth_success as HTML
+  Parameters: {"provider"=>"twitter"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' AND "users"."provider" = 'twitter'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "confirmed_at" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "sign_in_count" = $4, "tokens" = $5, "updated_at" = $6 WHERE "users"."id" = 1  [["confirmed_at", "2015-02-19 03:13:27.887111"], ["current_sign_in_at", "2015-02-19 03:13:27.887624"], ["last_sign_in_at", "2015-02-19 03:04:07.896490"], ["sign_in_count", 3], ["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$aDNLfQodETAbezCWqD/eOeiv7/BwS0HExBMTHeGhrH6C260d/PEfS\",\"expiry\":1425525207}}"], ["updated_at", "2015-02-19 03:13:27.889409"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$aDNLfQodETAbezCWqD/eOeiv7/BwS0HExBMTHeGhrH6C260d/PEfS\",\"expiry\":1425525207}}"], ["updated_at", "2015-02-19 03:13:27.898257"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/devise_token_auth-0.1.30/app/views/devise_token_auth/omniauth_success.html.erb within layouts/omniauth_response (2.0ms)
+Completed 200 OK in 131ms (Views: 9.9ms | ActiveRecord: 5.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:13:28 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 26ms (Views: 0.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:38 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:13:40 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 92ms (Views: 81.8ms | ActiveRecord: 3.2ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:13:40 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.4ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:40 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:45 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:48 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:54 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:13:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:00 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:14 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: POST
+  Access-Control-Request-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: access-token, client, content-type, accept, expiry, uid, if-modified-since, token-type
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:14:16 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>14, "query"=>"on", "user_id"=>"1", "gathering"=>{"query"=>"on", "leader_id"=>14}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gatherings" ("all_tweets", "created_at", "leader_handle", "leader_id", "phone_number", "query", "ratio", "relevant_tweets", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["all_tweets", 1], ["created_at", "2015-02-19 03:14:17.091909"], ["leader_handle", "BanuDalamanli"], ["leader_id", 14], ["phone_number", ""], ["query", "on"], ["ratio", 1.0], ["relevant_tweets", 1], ["updated_at", "2015-02-19 03:14:17.091909"], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mLeader Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2243433061' AND "leaders"."id" != 14) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Completed 200 OK in 365ms (Views: 0.5ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:20 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:23 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:14:24 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.5ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 2]]
+Completed 200 OK in 711ms (Views: 1.1ms | ActiveRecord: 4.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.6ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:26 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:14:29 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:14:29 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:29 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:14:32 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>1, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>1}}
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 1 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mLeader Exists (0.4ms)[0m  SELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '15407883' AND "leaders"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 224ms (Views: 0.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:38 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:44 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:46 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:48 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:54 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:56 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:14:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:02 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:05 -0800
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:08 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:14 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:16 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:22 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:36 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:39 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:42 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:45 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:48 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:15:50 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>7, "query"=>"+18059019050", "phone_number"=>"I", "user_id"=>"1", "gathering"=>{"query"=>"+18059019050", "leader_id"=>7, "phone_number"=>"I"}}
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.3ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "gatherings" ("all_tweets", "created_at", "leader_handle", "leader_id", "phone_number", "query", "ratio", "relevant_tweets", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["all_tweets", 0], ["created_at", "2015-02-19 03:15:50.917636"], ["leader_handle", "danielkelley123"], ["leader_id", 7], ["phone_number", "I"], ["query", "+18059019050"], ["ratio", 0.0], ["relevant_tweets", 0], ["updated_at", "2015-02-19 03:15:50.917636"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mLeader Exists (0.3ms)[0m  SELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2275925132' AND "leaders"."id" != 7) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "leaders" SET "query" = $1, "updated_at" = $2 WHERE "leaders"."id" = 7[0m  [["query", "+18059019050"], ["updated_at", "2015-02-19 03:15:50.921695"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 394ms (Views: 0.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:15:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:00 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:06 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:23 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568244705621774337' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:26 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:38 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:41 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:16:41 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>7, "query"=>"", "phone_number"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>7, "phone_number"=>""}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 3]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "gatherings" WHERE "gatherings"."id" = $1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2275925132' AND "leaders"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "leaders" SET "query" = $1, "updated_at" = $2 WHERE "leaders"."id" = 7  [["query", ""], ["updated_at", "2015-02-19 03:16:41.936798"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 184ms (Views: 0.8ms | ActiveRecord: 3.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:16:44 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 2.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:16:44 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 19:16:44 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$5gXnmwsrHhkZDo8qpCzK9ewNbC4.GfWYHUjKkSfx3pmLCBZTUcNRm\",\"expiry\":1425525404,\"last_token\":\"$2a$10$aDNLfQodETAbezCWqD/eOeiv7/BwS0HExBMTHeGhrH6C260d/PEfS\",\"updated_at\":\"2015-02-18T19:16:44.661-08:00\"}}"], ["updated_at", "2015-02-19 03:16:44.661997"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Completed 200 OK in 160ms (Views: 0.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:44 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:52 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:16:54 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>14, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>14}}
+  [1m[36mLeader Load (0.5ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Load (0.2ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 2]]
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "gatherings" WHERE "gatherings"."id" = $1  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLeader Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2243433061' AND "leaders"."id" != 14) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "leaders" SET "query" = $1, "updated_at" = $2 WHERE "leaders"."id" = 14  [["query", ""], ["updated_at", "2015-02-19 03:16:54.883893"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 238ms (Views: 0.6ms | ActiveRecord: 3.3ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:16:55 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>14, "query"=>"", "user_id"=>"1", "gathering"=>{"query"=>"", "leader_id"=>14}}
+  [1m[35mLeader Load (0.5ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 14 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 14 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mLeader Exists (0.4ms)[0m  SELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2243433061' AND "leaders"."id" != 14) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 190ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:56 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 19:16:56 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$969r65M4/TigRdl3kWU6putw0Xx18vGhA97/ZgbOYc0AzEknsOnFa\",\"expiry\":1425525416,\"last_token\":\"$2a$10$5gXnmwsrHhkZDo8qpCzK9ewNbC4.GfWYHUjKkSfx3pmLCBZTUcNRm\",\"updated_at\":\"2015-02-18T19:16:56.607-08:00\"}}"], ["updated_at", "2015-02-19 03:16:56.608030"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+Completed 200 OK in 161ms (Views: 0.3ms | ActiveRecord: 3.1ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:16:56 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.4ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:16:56 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:16:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:04 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.1ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:10 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:16 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:17:17 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>7, "query"=>"*", "user_id"=>"1", "gathering"=>{"query"=>"*", "leader_id"=>7}}
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 AND "gatherings"."user_id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mGathering Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "gatherings" ("all_tweets", "created_at", "leader_handle", "leader_id", "phone_number", "query", "ratio", "relevant_tweets", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["all_tweets", 0], ["created_at", "2015-02-19 03:17:18.171213"], ["leader_handle", "danielkelley123"], ["leader_id", 7], ["phone_number", ""], ["query", "*"], ["ratio", 0.0], ["relevant_tweets", 0], ["updated_at", "2015-02-19 03:17:18.171213"], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mLeader Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2275925132' AND "leaders"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "leaders" SET "query" = $1, "updated_at" = $2 WHERE "leaders"."id" = 7  [["query", "*"], ["updated_at", "2015-02-19 03:17:18.175311"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 202ms (Views: 0.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:30 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:33 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started POST "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:17:33 -0800
+Processing by GatheringsController#create as HTML
+  Parameters: {"leader_id"=>7, "query"=>"*", "phone_number"=>"+18059019050", "user_id"=>"1", "gathering"=>{"query"=>"*", "leader_id"=>7, "phone_number"=>"+18059019050"}}
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT  "gatherings".* FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 AND "gatherings"."user_id" = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 4]]
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "gatherings" WHERE "gatherings"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mGathering Exists (0.3ms)[0m  SELECT  1 AS one FROM "gatherings"  WHERE "gatherings"."leader_id" = 7 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "gatherings" ("all_tweets", "created_at", "leader_handle", "leader_id", "phone_number", "query", "ratio", "relevant_tweets", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["all_tweets", 0], ["created_at", "2015-02-19 03:17:33.950381"], ["leader_handle", "danielkelley123"], ["leader_id", 7], ["phone_number", "+18059019050"], ["query", "*"], ["ratio", 0.0], ["relevant_tweets", 0], ["updated_at", "2015-02-19 03:17:33.950381"], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mLeader Exists (0.3ms)[0m  SELECT  1 AS one FROM "leaders"  WHERE ("leaders"."twitter_id" = '2275925132' AND "leaders"."id" != 7) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 228ms (Views: 0.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:36 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:39 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:42 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:44 -0800
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.1ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:48 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:17:50 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 5]]
+Completed 200 OK in 95ms (Views: 0.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:50 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:53 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:17:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:02 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:08 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:14 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:20 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:23 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.1ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:26 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:28 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:34 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:40 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:46 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:52 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:18:58 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:04 -0800
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["content", "Tweet tweet"], ["created_at", "2015-02-19 03:19:06.133823"], ["gathering_id", 5], ["handle", "danielkelley123"], ["tweet_id", 568248245899513856], ["updated_at", "2015-02-19 03:19:06.133823"], ["url", "https://twitter.com/danielkelley123/status/568248245899513856"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:10 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:16 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:23 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:33 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:37 -0800
+
+
+Started GET "/sidekiq/?days=7" for 127.0.0.1 at 2015-02-18 19:19:38 -0800
+
+
+Started GET "/sidekiq/stylesheets/application.css" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/stylesheets/bootstrap.css" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/javascripts/application.js" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/javascripts/locales/jquery.timeago.en.js" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/javascripts/dashboard.js" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/images/status-sd8051fd480.png" for 127.0.0.1 at 2015-02-18 19:19:39 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:45 -0800
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.4ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:53 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:19:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:03 -0800
+  [1m[36mTweet Load (0.6ms)[0m  [1mSELECT "tweets".* FROM "tweets"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:23 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:25 -0800
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:33 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:39 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:20:59 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:01 -0800
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.6ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.5ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:19 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:23 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:33 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:39 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:45 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:53 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:21:59 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:05 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:07 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:11 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:13 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:17 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:19 -0800
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:23 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:25 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:31 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:33 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:37 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:39 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:41 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:43 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:45 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:47 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:49 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:53 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:55 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:22:57 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:01 -0800
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:06 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:18 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:24 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:30 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:33 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:36 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:40 -0800
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tweets" ("content", "created_at", "gathering_id", "handle", "tweet_id", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["content", "Test for Backend!"], ["created_at", "2015-02-19 03:23:41.112994"], ["gathering_id", 5], ["handle", "danielkelley123"], ["tweet_id", 568249450335830016], ["updated_at", "2015-02-19 03:23:41.112994"], ["url", "https://twitter.com/danielkelley123/status/568249450335830016"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.4ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:42 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:45 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:48 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:51 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:54 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:23:57 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:00 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:03 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:06 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:09 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:12 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:15 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:18 -0800
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:21 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:24 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:27 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:29 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:32 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:35 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:38 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:40 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:44 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 19:24:46 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE  [["id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$RKyJSB/P9Jf0Q/ny2AY0xubZ53hEpNVEa7IG4EHa.ZtnrosMdNGgW\",\"expiry\":1425525886,\"last_token\":\"$2a$10$969r65M4/TigRdl3kWU6putw0Xx18vGhA97/ZgbOYc0AzEknsOnFa\",\"updated_at\":\"2015-02-18T19:24:46.293-08:00\"}}"], ["updated_at", "2015-02-19 03:24:46.294804"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Completed 200 OK in 260ms (Views: 0.3ms | ActiveRecord: 7.9ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:24:46 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.4ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.6ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.5ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 5]]
+Completed 200 OK in 673ms (Views: 3.0ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:46 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:24:47 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.2ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.3ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 5]]
+Completed 200 OK in 113ms (Views: 1.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:49 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: GET
+  Access-Control-Request-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Preflight Headers:
+  Content-Type: text/plain
+  Access-Control-Allow-Origin: http://localhost:8000
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS, HEAD
+  Access-Control-Expose-Headers: access-token, expiry, token-type, uid, client
+  Access-Control-Max-Age: 1728000
+  Access-Control-Allow-Credentials: true
+  Access-Control-Allow-Headers: accept, expiry, uid, if-modified-since, token-type, access-token, client
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/gatherings" for 127.0.0.1 at 2015-02-18 19:24:50 -0800
+Processing by GatheringsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/leaders" for 127.0.0.1 at 2015-02-18 19:24:50 -0800
+Processing by LeadersController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLeader Load (0.3ms)[0m  SELECT "leaders".* FROM "leaders"  WHERE "leaders"."user_id" = $1  [["user_id", 1]]
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 0.7ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:24:51 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mGathering Load (0.3ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mLeader Load (0.4ms)[0m  SELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mTweet Load (0.2ms)[0m  SELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1  [["gathering_id", 5]]
+Completed 200 OK in 124ms (Views: 1.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:52 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:55 -0800
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/auth/validate_token" for 127.0.0.1 at 2015-02-18 19:24:56 -0800
+Processing by DeviseTokenAuth::TokenValidationsController#validate_token as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."uid" = '2166387026' LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  BEGIN
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1 FOR UPDATE[0m  [["id", 1]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["tokens", "{\"_m1i_rOc2elcS3tlxKnbWQ\":{\"token\":\"$2a$10$8EU1Sf5F88AgbnIYrB87r.RlXQiRLdEE4VzoZs4t4gSLcW9fc6Fs6\",\"expiry\":1425524377,\"last_token\":\"$2a$10$F8MixP0EZveEHGKjorThEeqiuZr120gj9wUv9xyMqj3Do2KCKyzq2\",\"updated_at\":\"2015-02-18T18:59:37.715-08:00\"},\"jFjATfhsf6OSmYYoq7Na7g\":{\"token\":\"$2a$10$KRjoE/6XOyVgKEl4cl21COd8cLPIYRDPNY9hkiDuZh42bikZbjJP2\",\"expiry\":1425524647},\"e5lsFyvloFeJykO-AZHWxg\":{\"token\":\"$2a$10$jEOzS9Lj7S5U2VY7.mtYJuZCGExn9MZOKNv.gjpHW4gNaMp1dIpUW\",\"expiry\":1425525896,\"last_token\":\"$2a$10$RKyJSB/P9Jf0Q/ny2AY0xubZ53hEpNVEa7IG4EHa.ZtnrosMdNGgW\",\"updated_at\":\"2015-02-18T19:24:56.535-08:00\"}}"], ["updated_at", "2015-02-19 03:24:56.536588"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 165ms (Views: 0.3ms | ActiveRecord: 3.5ms)
+Incoming Headers:
+  Origin: http://localhost:8000
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/users/1/tweets" for 127.0.0.1 at 2015-02-18 19:24:56 -0800
+Processing by TweetsController#all_tweets as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mGathering Load (0.3ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.3ms)[0m  [1mSELECT "tweets".* FROM "tweets"  WHERE "tweets"."gathering_id" = $1[0m  [["gathering_id", 5]]
+Completed 200 OK in 129ms (Views: 1.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:24:58 -0800
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "tweets" INNER JOIN "gatherings" ON "tweets"."gathering_id" = "gatherings"."id" WHERE "gatherings"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35mGathering Load (0.2ms)[0m  SELECT "gatherings".* FROM "gatherings"  WHERE "gatherings"."user_id" = $1  [["user_id", 1]]
+  [1m[36mLeader Load (0.3ms)[0m  [1mSELECT  "leaders".* FROM "leaders"  WHERE "leaders"."id" = 7 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mTweet Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568249450335830016' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mTweet Exists (0.3ms)[0m  SELECT  1 AS one FROM "tweets"  WHERE "tweets"."tweet_id" = '568248245899513856' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:25:01 -0800
+
+
+Started GET "/sidekiq/dashboard/stats" for 127.0.0.1 at 2015-02-18 19:25:04 -0800

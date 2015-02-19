@@ -4,5 +4,5 @@ require_relative '../config/boot'
 require_relative '../config/environment'
 
 module Clockwork
-  every(20.seconds, 'wtf') { TweetsWorker.perform_async }
+  every(40.seconds, 'queueing tweet refresh and alert scanning') { TweetsWorker.perform_async }
 end
