@@ -2,10 +2,10 @@ class TweetsController < ApplicationController
 
   # send client all tweets belonging to a user (client to api)
   def all_tweets
-    #populates data_base with all tweets for specific user.
-    BackgroundJobsHelper.tweets_for_all_users
-
     user  = User.find_by(id: params[:user_id])
+
+    #populates data_base with all tweets for specific user.
+    BackgroundJobsHelper.tweets_for_specific_user(user.id)
 
     tweets = []
     user.gatherings.each do |gathering|
