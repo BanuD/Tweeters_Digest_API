@@ -1,5 +1,5 @@
 .env
 /config/secrets.yml
-/tmp
-/log
+/tmp/.
+/log/.
 
