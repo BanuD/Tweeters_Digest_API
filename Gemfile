@@ -1,12 +1,20 @@
 source 'https://rubygems.org'
 
+#gems for sidekiq background jobs monitoring feature
+gem 'sinatra', require: false
+gem 'slim'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
-gem 'redis', '3.2.0'
 
+#queuing gem
 gem 'sidekiq', '3.3.0'
+#server where tasks are executed from sidekiq queue
+gem 'redis', '3.2.0'
+#queue jobs at a specific time
+gem 'clockwork'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
