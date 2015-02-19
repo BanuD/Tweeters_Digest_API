@@ -13,6 +13,7 @@ class TweetsController < ApplicationController
     end
     #flatten tweets array into 1 array
     #sort the flattened array by tweet_creation_time
+    tweets.flaten!
     tweets.map do |tweet|
       tweets.sort! {|tweet1, tweet2| tweet2.tweet_creation_time <=> tweet1.tweet_creation_time}
     end
@@ -25,6 +26,7 @@ class TweetsController < ApplicationController
     gathering = gathering.find_by(id: params[:gathering_id])
     tweets = gathering.tweets
 
+    tweets.flaten!
     tweets.map do |tweet|
       tweets.sort! {|tweet1, tweet2| tweet2.tweet_creation_time <=> tweet1.tweet_creation_time}
     end
@@ -43,6 +45,7 @@ class TweetsController < ApplicationController
     end
     tweets.map { |tweet| Tweet.create(gathering_id: gathering.id, content: tweet.text, tweet_id: tweet.id, handle: leader.handle, url: tweet.url.to_s, leader_pic_url: leader.profile_image_url_https, tweet_creation_time: tweet.created_at)}
 
+    tweets.flaten!
     tweets.map do |tweet|
       tweets.sort! {|tweet1, tweet2| tweet2.tweet_creation_time <=> tweet1.tweet_creation_time}
     end
