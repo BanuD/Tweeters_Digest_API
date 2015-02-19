@@ -12,6 +12,8 @@ gem 'rails', '4.1.6'
 gem 'sidekiq', '3.3.0'
 #server where tasks are executed from sidekiq queue
 gem 'redis', '3.2.0'
+#queue jobs at a specific time
+gem 'clockwork'
 
 gem 'pg'
 # Use SCSS for stylesheets
