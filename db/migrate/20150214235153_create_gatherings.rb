@@ -9,6 +9,7 @@ class CreateGatherings < ActiveRecord::Migration
       t.integer :all_tweets
       t.float   :ratio
       t.string  :phone_number
+      t.string  :leader_pic_url
 
       t.timestamps
     end
