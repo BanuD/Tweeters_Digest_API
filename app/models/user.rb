@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  include DeviseTokenAuth::Concerns::User
   after_create :create_leaders
 
   has_many  :leaders
