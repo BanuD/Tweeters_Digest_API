@@ -1,4 +1,4 @@
-class GatheringsController < ApplicationController
+class GatheringsController < SecuredController
 
   # Fetch all gatherings belonging to a user
   def index

@@ -1,4 +1,4 @@
-class TweetsController < ApplicationController
+class TweetsController < SecuredController
 
   # send client all tweets belonging to a user (client to api)
   def all_tweets
